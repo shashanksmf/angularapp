@@ -27,7 +27,7 @@ import { ChatListComponent } from './chat-list/chat-list.component';
 import { IndustryItemComponent } from './industry-item/industry-item.component';
 // import { AppRoutingModule } from './/app-routing.module';
 const routes: Routes = [
-  { path: '', component: ChatComponent },
+  { path: '', component: IndexComponent },
   { path: 'mainpeoples', component: MainPeopleComponent },
   { path: 'chat', component: ChatComponent },
   { path: 'profile', component: ProfileComponent },
