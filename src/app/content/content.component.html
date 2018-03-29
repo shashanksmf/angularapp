@@ -1,0 +1,525 @@
+<div class="menu-left">
+  <div class="menu-left__header">
+    <button class="menu-left__close">
+              <img src="./assets/images/menu_close.png" alt="">
+          </button>
+  </div>
+</div>
+<a class="profile__link" data-toggle="modal" data-target="#modalEditComunication" (click)="open(modalEditComunication)">modalEditComunication</a>
+<a class="profile__link" data-toggle="modal" data-target="#modalEditProfile" (click)="open(modalEditProfile)">modalEditProfile</a>
+<a class="profile__link" data-toggle="modal" data-target="#modalEditHistory" (click)="open(modalEditHistory)">modalEditHistory</a>
+<a class="profile__link" data-toggle="modal" data-target="#modalFindComunication" (click)="open(modalFindComunication)">modalFindComunication</a>
+<!-- Редактирование личных данных-->
+<!-- <div class="modal fade" id="modalEditProfile" tabindex="-1" role="dialog" aria-labelledby="modalEditProfile" aria-hidden="true"> -->
+<ng-template #modalEditProfile let-c="close" let-d="dismiss">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="edit-profile">
+        <div class="edit-profile__header">
+          <a class="" href="" data-dismiss="modal" aria-label="Close" aria-hidden="true">
+                        <i class="fa fa-angle-left"></i>
+                        <span>Редактирование личных данных</span>
+                    </a>
+        </div>
+
+        <div class="edit-profile__content">
+          <form action="">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Имя</label>
+                  <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Введите имя" required>
+                </div>
+
+                <div class="form-group">
+                  <label>Страна</label>
+                  <input type="text" class="form-control ui-input ui-input--md ui-input--themes2 typeahead" placeholder="Выберите страну" data-provide="typeahead" required>
+                </div>
+
+                <div class="form-group">
+                  <label>Статус</label>
+                  <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Введите" required>
+                </div>
+
+                <div class="form-group">
+                  <label>E-mail</label>
+                  <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Ведите E-mail" required>
+                </div>
+
+                <div class="form-group">
+                  <label>Пол</label>
+                  <div>
+                    <label class="ui-radio-button">
+                                            <input type="radio" name="choice-sex" checked required/>
+                                            <span class="ui-radio-button__indicator"></span>
+                                            Мужчина
+                                        </label>
+
+                    <label class="ui-radio-button">
+                                            <input type="radio" name="choice-sex" required/>
+                                            <span class="ui-radio-button__indicator"></span>
+                                            Женщина
+                                        </label>
+                  </div>
+                </div>
+
+                <div class="edit-profile__button">
+                  <button class="btn ui-button ui-button--md ui-button--full" type="submit">СОХРАНИТЬ</button>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Фамилия</label>
+                  <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Введите фамилия" required>
+                </div>
+
+                <div class="form-group">
+                  <label>Город</label>
+                  <input type="text" class="form-control ui-input ui-input--md ui-input--themes2 typeahead" placeholder="Выберите город" required>
+                </div>
+
+                <div class="form-group">
+                  <label>Дата рождения</label>
+                  <input type="date" class="form-control ui-input ui-input--md ui-input--themes2" required>
+                </div>
+
+                <div class="form-group">
+                  <label>Телефон</label>
+                  <input type="tel" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="+7 888 888 888">
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="edit-profile__avatar">
+
+                  <img class="edit-profile__image" src="./assets/images/no-photo.png" alt="">
+
+                  <div class="edit-profile__link">
+                    <a href="">
+                                            Редактировать
+                                        </a>
+
+                    <a href="">
+                                            Удалить
+                                        </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<!-- </div> -->
+
+<!-- Редактирование истории-->
+<ng-template #modalEditHistory let-c="close" let-d="dismiss">
+<!-- <div class="modal fade" id="modalEditHistory" tabindex="-1" role="dialog" aria-labelledby="modalEditHistory" aria-hidden="true"> -->
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="edit-profile">
+        <div class="edit-profile__header">
+          <a class="" href="" data-dismiss="modal" aria-label="Close" aria-hidden="true">
+                        <i class="fa fa-angle-left"></i>
+                        <span>Редактирование истории</span>
+                    </a>
+        </div>
+
+        <div class="edit-profile__content">
+          <form action="">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="ui-radio-button">
+                                        <input type="radio" name="choice-sex" checked/>
+                                        <span class="ui-radio-button__indicator"></span>
+                                        Я собственик
+
+                                        <button class="ui-button ui-button--info ui-button--info--20" type="button" data-toggle="tooltip"
+                                                data-placement="top"
+                                                title="Аккаунт всегда открыт! Только тариф “Премиум” имеет право скрывать  аккаунт из поиска по фильтру! при нажатии текста: “Вам требуется перейти на тарифный план “Премиум”">
+                                            <img src="./assets/images/info_profile.png" alt="">
+                                        </button>
+                                    </label>
+                </div>
+
+                <div class="form-group">
+                  <label>Направление</label>
+
+                  <div class="ui-select">
+                    <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Название направления" required>
+                    <span> <i class="fa fa-chevron-down"></i></span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Название компании</label>
+
+                  <div class="ui-select">
+                    <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Введите">
+                    <span> <i class="fa fa-chevron-down"></i></span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Начал работать</label>
+                  <div class="date_select">
+                    <input type="text" class="date_select_input form-control ui-input ui-input--md ui-input--themes2" value="21 / 04 / 1984" required>
+                    <span class="date_select_mark">
+                                            <i class="fa fa-caret-up"></i>
+                                            <i class="fa fa-caret-down"></i>
+                                        </span>
+                  </div>
+                </div>
+
+                <div class="edit-profile__button">
+                  <button class="btn ui-button ui-button--md ui-button--full" type="submit">СОХРАНИТЬ</button>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="ui-radio-button">
+                                        <input type="radio" name="choice-sex2" />
+                                        <span class="ui-radio-button__indicator"></span>
+                                        Сделать основной
+
+                                        <button class="ui-button ui-button--info ui-button--info--20" type="button" data-toggle="tooltip"
+                                                data-placement="top"
+                                                title="Аккаунт всегда открыт! Только тариф “Премиум” имеет право скрывать  аккаунт из поиска по фильтру! при нажатии текста: “Вам требуется перейти на тарифный план “Премиум”">
+                                            <img src="./assets/images/info_profile.png" alt="">
+                                        </button>
+                                    </label>
+
+                </div>
+
+                <div class="form-group">
+                  <label>Должность</label>
+                  <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Введите">
+                </div>
+
+                <div class="form-group">
+                  <label>Сайт компании</label>
+                  <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Введите">
+                </div>
+
+                <div class="form-group">
+                  <label>Завершил работу</label>
+                  <div class="date_select">
+                    <input type="text" class="date_select_input form-control ui-input ui-input--md ui-input--themes2" value="По настоящие время" required>
+                    <span class="date_select_mark">
+                                            <i class="fa fa-caret-up"></i>
+                                            <i class="fa fa-caret-down"></i>
+                                        </span>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-md-4">
+                <div class="modal_label_text">Текст описание</div>
+                <div class="modal_text">
+                  Краткая описание данного блока по иминению текста и ваших персональных данных, измените и сохраните что бы изменить данные.
+                </div>
+                <div class="modal_text">
+                  Краткая описание данного блока по иминению текста и ваших персональных данных.
+                </div>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!-- Редактирование ищу связи-->
+  <ng-template #modalFindComunication let-c="close" let-d="dismiss">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="edit-profile">
+          <div class="edit-profile__header">
+            <a class="" href="" data-dismiss="modal" aria-label="Close" aria-hidden="true">
+                          <i class="fa fa-angle-left"></i>
+                          <span>Редактирование ищу связи</span>
+                      </a>
+          </div>
+
+          <div class="edit-profile__content">
+            <form action="">
+              <div class="row">
+                <div class="col-md-8 pdd">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Отрасль</label>
+                      <div class="ui-select">
+                        <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Название отрасли" required>
+                        <span> <i class="fa fa-chevron-down"></i></span>
+                      </div>
+                    </div>
+
+
+                    <div class="form-group">
+                      <label>Название компании</label>
+                      <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Введите">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Сегмент</label>
+
+                      <div class="ui-select">
+                        <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Ваш сегмент">
+                        <span> <i class="fa fa-chevron-down"></i></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Кратвое описание (40 символов)</label>
+                      <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="" required>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="modal_label_text mrg--t0">Текст описание</div>
+                  <div class="modal_text">
+                    Краткая описание данного блока по иминенaию текста и ваших персональных данных, измените и сохраните что бы изменить данные.
+                  </div>
+                  <div class="modal_text">
+                    Краткая описание данного блока по иминению текста и ваших персональных данных.
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="edit-profile__button">
+                    <button class="btn ui-button ui-button--md ui-button--full" type="submit">СОХРАНИТЬ</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+<!-- Редактирование имею связи-->
+<!-- <div class="modal fade" id="modalEditComunication" tabindex="-1" role="dialog" aria-labelledby="modalEditComunication" aria-hidden="true"> -->
+<ng-template #modalEditComunication let-c="close" let-d="dismiss">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="edit-profile">
+        <div class="edit-profile__header">
+          <a class="" href="" data-dismiss="modal" aria-label="Close" aria-hidden="true">
+                        <i class="fa fa-angle-left"></i>
+                        <span>Редактирование имею связи</span>
+                    </a>
+        </div>
+
+        <div class="edit-profile__content">
+          <form action="">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="ui-radio-button">
+                                        <input type="radio" name="choice-sex" checked required/>
+                                        <span class="ui-radio-button__indicator"></span>
+                                        Я собственик
+                                        <button class="info_button" type="button">i</button>
+                                    </label>
+                </div>
+
+                <div class="form-group">
+                  <label>Отрасль</label>
+                  <div class="ui-select">
+                    <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Название отрасли" required>
+                    <span> <i class="fa fa-chevron-down"></i></span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Направление</label>
+                  <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Название направление">
+                </div>
+
+                <div class="form-group">
+                  <label>Название компании</label>
+                  <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="" value="Россиия">
+                </div>
+
+                <div class="edit-profile__button">
+                  <button class="btn ui-button ui-button--md ui-button--full" type="submit">СОХРАНИТЬ</button>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="ui-radio-button">
+                                        <input type="radio" name="choice-sex" checked required/>
+                                        <span class="ui-radio-button__indicator"></span>
+                                        Я работаю здесь
+                                        <button class="info_button" type="button">i</button>
+                                    </label>
+                </div>
+
+                <div class="form-group">
+                  <label>Сегмент</label>
+                  <div class="ui-select">
+                    <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Введите">
+                    <span> <i class="fa fa-chevron-down"></i></span>
+                  </div>
+
+                  <!--<div class="">-->
+                  <!--<select class="selectpicker">-->
+                  <!--<option>Mustard</option>-->
+                  <!--<option>Ketchup</option>-->
+                  <!--<option>Relish</option>-->
+                  <!--</select>-->
+                  <!--</div>-->
+
+                </div>
+
+                <div class="form-group">
+                  <label>Должность</label>
+                  <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Название должности">
+                </div>
+              </div>
+
+
+              <div class="col-md-4">
+                <div class="modal_label_text">Текст описание</div>
+                <div class="modal_text">
+                  Краткая описание данного блока по иминению текста и ваших персональных данных, измените и сохраните что бы изменить данные.
+                </div>
+                <div class="modal_text">
+                  Краткая описание данного блока по иминению текста и ваших персональных данных.
+                </div>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->
+</ng-template>
+
+<!-- Новое сообщение Связи-->
+<!-- <div class="modal fade" id="modalNewMessage" tabindex="-1" role="dialog" aria-labelledby="modalNewMessage" aria-hidden="true"> -->
+<ng-template #modalNewMessage let-c="close" let-d="dismiss">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="new-message">
+        <div class="new-message__header">
+          Новое сообщение
+          <button class="close close--white" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+        </div>
+
+        <div class="new-message__content">
+          <textarea class="new-message__input-field ui-textarea ui-textarea--not-resize ui-textarea--full ui-textarea--no-border" placeholder="Текст вашего сообщения">Привет! Я хочу добавить тебя в свои связи.</textarea>
+        </div>
+
+        <div class="new-message__footer">
+          <div class="stealth-mode">
+            <span>Режим неведимки</span>
+
+            <label class="ui-switcher">
+                            <input type="checkbox" checked>
+                            <span class="ui-switcher__slider ui-switcher__round"></span>
+                        </label>
+
+            <span class="user-plan user-plan--sm">PRO</span>
+          </div>
+          <div class="">
+            <button class="btn ui-button ui-button--md" type="button" data-dismiss="modal" data-toggle="modal" aria-label="Close" data-target="#modalDoneSend">ОТПРАВИТЬ
+                        </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!-- Новое сообщение Люди-->
+<!-- <div class="modal fade" id="modalNewMessagePeople" tabindex="-1" role="dialog" aria-labelledby="modalNewMessagePeople" aria-hidden="true"> -->
+<ng-template #modalNewMessagePeople let-c="close" let-d="dismiss">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="new-message">
+        <div class="new-message__header">
+          Новое сообщение
+          <button class="close close--white" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+        </div>
+
+        <div class="new-message__content">
+          <div class="new-message__info-recipient">
+            <div class="avatar avatar--50 avatar--mrg-r15">
+              <img src="./assets/images/ava1.jpg">
+            </div>
+
+            <div>
+              <div class="new-message__info-name">Василий Пупкин</div>
+              <div class="new-message__info-desc">IT - Специалист - Руководитель</div>
+            </div>
+          </div>
+
+          <textarea class="new-message__input-field ui-textarea ui-textarea--not-resize ui-textarea--full ui-textarea--no-border" placeholder="Текст вашего сообщения">Привет! Я хочу добавить тебя в свои связи.</textarea>
+        </div>
+
+        <div class="new-message__footer">
+          <div class="stealth-mode">
+            <span>Режим неведимки</span>
+
+            <label class="ui-switcher">
+                            <input type="checkbox" checked>
+                            <span class="ui-switcher__slider ui-switcher__round"></span>
+                        </label>
+
+            <span class="user-plan user-plan--sm">PRO</span>
+          </div>
+          <div class="">
+            <button class="btn ui-button ui-button--md" type="button" data-dismiss="modal" data-toggle="modal" aria-label="Close" data-target="#modalDoneSend">ОТПРАВИТЬ
+                        </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<!-- </div> -->
+
+<!-- Сообщение Отправленно-->
+<!-- <div class="modal fade" id="modalDoneSend" tabindex="-1" role="dialog" aria-labelledby="modalDoneSend" aria-hidden="true"> -->
+<ng-template #modalDoneSend let-c="close" let-d="dismiss">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="new-message">
+        <div class="new-message__header">
+          Новое сообщение
+          <button class="close close--white" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+        </div>
+
+        <div class="new-message__content new-message__content--done">
+          Ваше сообщение отправлено.
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<!-- </div> -->

@@ -1,0 +1,14 @@
+.aside {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 70px;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    height: auto;
+    width: 500px;
+    min-width: 365px;
+    padding: 0 40px 0 20px;
+    color: var(--text-hard);
+}

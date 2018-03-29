@@ -1,0 +1,240 @@
+<!-- Уведомления-->
+<aside class="aside ntc">
+  <div class="aside__item">
+    <div class="aside__item-caption">
+      <span>Чат</span>
+      <button class="aside__button" type="button" (click)="toggleMenu()">
+                <img class="aside__icon" src="./assets/images/look.png" alt="">
+            </button>
+    </div>
+
+    <div class="aside__item-content">
+      <a class="aside__item-menu aside__item-menu--active">
+                <span class="">Ваши сообщения</span>
+                <span class="counter counter--17">2</span>
+            </a>
+    </div>
+  </div>
+
+  <div class="aside__item">
+    <div class="aside__item-caption">
+      <span>Уведомление</span>
+      <button type="button" class="btn" (click)="toggleMenu()" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+         <img class="aside__icon" src="./assets/images/look.png" alt="click me">
+      </button>
+    </div>
+
+    <div class="aside__item-content">
+      <a class="aside__item-menu">
+                <span class="">Все уведомление</span>
+                <span class="counter counter--17">23</span>
+            </a>
+    </div>
+  </div>
+</aside>
+
+<!-- Авторизация-->
+<aside class="aside hide auth">
+  <div class="login-form login-form--in-main-page">
+    <!-- Авторизация-->
+    <div class="login-form__inner auth-in login-form__inner--is-active">
+      <div class="login-form__caption">Авторизация</div>
+      <div class="login-form__sub-title">В деле - связи решают все!</div>
+
+      <form action="">
+        <div class="login-form__field">
+          <input type="email" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Email">
+        </div>
+
+        <div class="login-form__field">
+          <input type="password" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Пароль">
+          <span class="show_password"></span>
+        </div>
+
+        <div class="login-form__forget">
+          <label class="ui-checkbox">
+                        <input class="ui-checkbox__input" type="checkbox">
+
+                        <span class="ui-checkbox__mark">
+                    <i class="fas fa-check"></i>
+                </span>
+
+                        <span class="ui-checkbox__title">Запомнить меня</span>
+                    </label>
+
+          <button class="login-form__link singRecoverOpen" data-toggle="tab">Забыли пароль?</button>
+        </div>
+
+        <!--<div class="soc_title">Вход через социальные сети</div>-->
+
+        <div class="login-form__field">
+          <button class="btn ui-button btn-block ui-button--md" type="submit">Войти</button>
+        </div>
+
+        <div class="login-form__field">
+          <button class="btn ui-button btn-block ui-button--green ui-button--md singOutOpen" data-toggle="tab">Регистрация
+                    </button>
+        </div>
+
+        <div class="login-form_or-separate login-form_or-separate--body">
+          <span></span>
+          <div>или</div>
+          <span></span>
+        </div>
+
+        <div class="row row-social">
+          <div class="col col-xs-3">
+            <button class="btn ui-button ui-button--md ui-button--fb">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        </button>
+          </div>
+
+          <div class="col col-xs-3">
+            <button class="btn ui-button ui-button--md ui-button--vk">
+                            <i class="fab fa-vk" aria-hidden="true"></i>
+                        </button>
+          </div>
+
+          <div class="col col-xs-3">
+            <button class="btn ui-button ui-button--md ui-button--ok">
+                            <i class="fab fa-odnoklassniki" aria-hidden="true"></i>
+                        </button>
+          </div>
+
+          <div class="col col-xs-3">
+            <button class="btn ui-button ui-button--md ui-button--ln">
+                            <!--<i class="fab fa-linkedin-in" aria-hidden="true"></i>-->
+                            <img src="./assets/images/moimir.svg" alt="">
+                        </button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+    <!-- Регистрация-->
+    <div class="login-form__inner auth-out">
+      <div class="login-form__caption">Регистрация</div>
+
+      <form action="">
+        <div class="login-form__sub-title">
+          <button type="button" class="login-form__link singInOpen" data-toggle="tab">< Авторизация</button>
+        </div>
+
+        <div class="login-form__field">
+          <input type="email" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Email">
+        </div>
+
+        <div class="login-form__field">
+          <input type="password" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Пароль">
+          <span class="show_password"></span>
+        </div>
+
+        <div class="login-form__field">
+          <input type="password" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Повторите пароль">
+          <span class="show_password"></span>
+        </div>
+
+        <div class="login-form__field">
+          <button class="btn ui-button btn-block ui-button--md">Регистрация</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Восстановления пароля-->
+    <div class="login-form__inner auth-rec">
+      <div class="login-form__caption">Восстановления пароля</div>
+      <div class="login-form__sub-title">
+        <button type="button" class="login-form__link singInOpen" data-toggle="tab">< Авторизация</button>
+      </div>
+
+      <form action="">
+        <div class="login-form__field">
+          <input type="email" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Введите Ваш Email">
+          <!--<span class="show_password"></span>-->
+        </div>
+
+        <div class="login-form__field">
+          <button class="btn ui-button btn-block ui-button--md singRecoverDataOpen" data-toggle="tab">ОТПРАВИТЬ</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Восстановления пароля ввод данных-->
+    <div class="login-form__inner auth-rec-data">
+      <div class="login-form__caption">Восстановления пароля</div>
+      <div class="login-form__sub-title">
+        <button type="button" class="login-form__link singInOpen" data-toggle="tab">< Авторизация</button>
+      </div>
+
+      <form action="">
+
+        <div class="login-form__field">
+          <input type="password" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Введите новый пароль">
+          <!--<span class="show_password"></span>-->
+        </div>
+
+        <div class="login-form__field">
+          <input type="password" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Подтвердите новый пароль">
+          <!--<span class="show_password"></span>-->
+        </div>
+
+        <div class="login-form__field">
+          <button class="btn ui-button btn-block ui-button--md sendDataOpen" data-toggle="tab">ПОДТВЕРДИТЬ</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Данные отправленны -->
+    <div class="login-form__inner auth-done">
+
+      <div class="login-form__success-data">
+        <span class="login-form__success-icon"></span> Вам на почту пришло письмо, подтвердите вашу регистрацию по ссылке. Спасибо.
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- Профиль-->
+<aside class="aside hide prof">
+  <div class="aside__item">
+    <div class="aside__item-caption">
+      <span>Ваш профиль</span>
+
+      <button class="aside__button" type="button">
+                <img class="aside__icon" src="./assets/images/look.png" alt="">
+            </button>
+    </div>
+
+    <div class="aside__item-content">
+      <a class="aside__item-menu aside__item-menu--active" href="profile.html">
+                <span class="">Личные данные</span>
+            </a>
+
+      <a class="aside__item-menu" href="">
+                <span>Место работы</span>
+            </a>
+    </div>
+  </div>
+
+  <div class="aside__item">
+    <div class="aside__item-caption">
+      <span>Связи</span>
+
+      <button class="aside__button" type="button">
+                <img class="aside__icon" src="./assets/images/look.png" alt="">
+            </button>
+    </div>
+
+    <div class="aside__item-content">
+      <a class="aside__item-menu" href="">
+                <span class="">Ищу связи</span>
+            </a>
+
+      <a class="aside__item-menu" href="">
+                <span class="">Имею связи</span>
+            </a>
+    </div>
+  </div>
+</aside>
+<app-notification [@slideInOut]="menuState" (messageEvent)="receiveMessage($event)"></app-notification>

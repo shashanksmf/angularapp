@@ -1,0 +1,17 @@
+<div class="" *ngFor="let arr1 of chatarr">
+  <div class="chat__item-message">
+      <div class="avatar avatar--40 avatar--mrg-r15">
+        <img [src]="arr1.senderImage">
+      </div>
+      <div class="chat__item-message-content">
+        <div class="chat__item-message-caption">
+          <span>{{arr1.senderName}}</span>,
+          <span></span>
+          <span class="chat__time">{{arr1.date|  date:'short'}}</span>
+        </div>
+        <div class="chat__item-message-text">
+          <p [innerHTML]="arr1.senderMsg"></p>
+        </div>
+      </div>
+    </div>
+</div>

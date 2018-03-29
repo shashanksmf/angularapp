@@ -1,0 +1,625 @@
+<app-header></app-header>
+
+<main class="content-inner content-inner--indent-left content-inner--auto">
+  <article class="chat card">
+    <div class="chat__content">
+      <div class="chat__left">
+        <div class="chat__header">
+          <input class="ui-input ui--border ui-input--silver ui-input--md" type="text" placeholder="Поиск">
+        </div>
+
+        <div class="chat__list scroll-fix">
+
+            <app-peoples data="ppl" (userEvent)="receiveUser($event)" [peopleArr]=peopleArr></app-peoples>
+
+        </div>
+      </div>
+      <div class="chat__right">
+        <div class="chat__right-header">
+          <div class="avatar avatar--40 avatar--mrg-r15">
+            <div class="avatar__status"></div>
+            <img [src]="receiverImage">
+          </div>
+          <div class="">
+            <div class="chat__user-name" [innerText]='receiverName'></div>
+            <div class="chat__status-data" [innerText]='lastTime'></div>
+          </div>
+
+          <div class="stealth-mode stealth-mode--right">
+            <span>Режим неведимки</span>
+
+            <label class="ui-switcher">
+                          <input type="checkbox" checked>
+                          <span class="ui-switcher__slider ui-switcher__round"></span>
+                      </label>
+
+            <span class="user-plan user-plan--sm">PRO</span>
+          </div>
+        </div>
+
+        <div class="chat__correspondence">
+          <div class="chat__correspondence-wrapper">
+            <div class="chat__correspondence-content scroll-fix">
+              <div class="chat__control-time-line">
+                12.08.2017
+              </div>
+              <app-chat-list [chatarr]="chatarr"></app-chat-list>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat__send-message">
+          <label class="ui-file">
+                      <img src="./assets/images/icn-add.jpg" class="icn-add">
+                      <input type="file"/>
+                  </label>
+
+          <div class="chat__text-field">
+            <textarea [(ngModel)]="textValue" (keyup.enter)="insertData(titleInput.value)" required class="ui-textarea ui-textarea--not-resize ui--border" name="fied-message" accesskey="tab" rows="1" required autofocus placeholder="Напишите сообщение..." #titleInput></textarea>
+          </div>
+
+          <button class="ui-button--round ui--not-bg" type="button" (click)='insertData(titleInput.value)' >
+                      <img src="./assets/images/icn-send.png" class="icn-add">
+                  </button>
+        </div>
+      </div>
+
+      <!-- <app-chat-list></app-chat-list> -->
+    </div>
+  </article>
+
+
+
+  <!-- Авторизация-->
+  <aside class="aside hide auth">
+    <div class="login-form login-form--in-main-page">
+      <!-- Авторизация-->
+      <div class="login-form__inner auth-in login-form__inner--is-active">
+        <div class="login-form__caption">Авторизация</div>
+        <div class="login-form__sub-title">В деле - связи решают все!</div>
+
+        <form action="">
+          <div class="login-form__field">
+            <input type="email" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Email">
+          </div>
+
+          <div class="login-form__field">
+            <input type="password" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Пароль">
+            <span class="show_password"></span>
+          </div>
+
+          <div class="login-form__forget">
+            <label class="ui-checkbox">
+                          <input class="ui-checkbox__input" type="checkbox">
+
+                          <span class="ui-checkbox__mark">
+                      <i class="fas fa-check"></i>
+                  </span>
+
+                          <span class="ui-checkbox__title">Запомнить меня</span>
+                      </label>
+
+            <button class="login-form__link singRecoverOpen" data-toggle="tab">Забыли пароль?</button>
+          </div>
+
+          <!--<div class="soc_title">Вход через социальные сети</div>-->
+
+          <div class="login-form__field">
+            <button class="btn ui-button btn-block ui-button--md" type="submit">Войти</button>
+          </div>
+
+          <div class="login-form__field">
+            <button class="btn ui-button btn-block ui-button--green ui-button--md singOutOpen" data-toggle="tab">Регистрация
+                      </button>
+          </div>
+
+          <div class="login-form_or-separate login-form_or-separate--body">
+            <span></span>
+            <div>или</div>
+            <span></span>
+          </div>
+
+          <div class="row row-social">
+            <div class="col col-xs-3">
+              <button class="btn ui-button ui-button--md ui-button--fb">
+                              <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                          </button>
+            </div>
+
+            <div class="col col-xs-3">
+              <button class="btn ui-button ui-button--md ui-button--vk">
+                              <i class="fab fa-vk" aria-hidden="true"></i>
+                          </button>
+            </div>
+
+            <div class="col col-xs-3">
+              <button class="btn ui-button ui-button--md ui-button--ok">
+                              <i class="fab fa-odnoklassniki" aria-hidden="true"></i>
+                          </button>
+            </div>
+
+            <div class="col col-xs-3">
+              <button class="btn ui-button ui-button--md ui-button--ln">
+                              <!--<i class="fab fa-linkedin-in" aria-hidden="true"></i>-->
+                              <img src="./assets/images/moimir.svg" alt="">
+                          </button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+
+      <!-- Регистрация-->
+      <div class="login-form__inner auth-out">
+        <div class="login-form__caption">Регистрация</div>
+
+        <form action="">
+          <div class="login-form__sub-title">
+            <button type="button" class="login-form__link singInOpen" data-toggle="tab">< Авторизация</button>
+          </div>
+
+          <div class="login-form__field">
+            <input type="email" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Email">
+          </div>
+
+          <div class="login-form__field">
+            <input type="password" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Пароль">
+            <span class="show_password"></span>
+          </div>
+
+          <div class="login-form__field">
+            <input type="password" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Повторите пароль">
+            <span class="show_password"></span>
+          </div>
+
+          <div class="login-form__field">
+            <button class="btn ui-button btn-block ui-button--md">Регистрация</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Восстановления пароля-->
+      <div class="login-form__inner auth-rec">
+        <div class="login-form__caption">Восстановления пароля</div>
+        <div class="login-form__sub-title">
+          <button type="button" class="login-form__link singInOpen" data-toggle="tab">< Авторизация</button>
+        </div>
+
+        <form action="">
+          <div class="login-form__field">
+            <input type="email" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Введите Ваш Email">
+            <!--<span class="show_password"></span>-->
+          </div>
+
+          <div class="login-form__field">
+            <button class="btn ui-button btn-block ui-button--md singRecoverDataOpen" data-toggle="tab">ОТПРАВИТЬ</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Восстановления пароля ввод данных-->
+      <div class="login-form__inner auth-rec-data">
+        <div class="login-form__caption">Восстановления пароля</div>
+        <div class="login-form__sub-title">
+          <button type="button" class="login-form__link singInOpen" data-toggle="tab">< Авторизация</button>
+        </div>
+
+        <form action="">
+
+          <div class="login-form__field">
+            <input type="password" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Введите новый пароль">
+            <!--<span class="show_password"></span>-->
+          </div>
+
+          <div class="login-form__field">
+            <input type="password" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Подтвердите новый пароль">
+            <!--<span class="show_password"></span>-->
+          </div>
+
+          <div class="login-form__field">
+            <button class="btn ui-button btn-block ui-button--md sendDataOpen" data-toggle="tab">ПОДТВЕРДИТЬ</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Данные отправленны -->
+      <div class="login-form__inner auth-done">
+
+        <div class="login-form__success-data">
+          <span class="login-form__success-icon"></span> Вам на почту пришло письмо, подтвердите вашу регистрацию по ссылке. Спасибо.
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Профиль-->
+  <aside class="aside hide prof">
+    <div class="aside__item">
+      <div class="aside__item-caption">
+        <span>Ваш профиль</span>
+
+        <button class="aside__button" type="button">
+                  <img class="aside__icon" src="./assets/images/look.png" alt="">
+              </button>
+      </div>
+
+      <div class="aside__item-content">
+        <a class="aside__item-menu aside__item-menu--active" href="profile.html">
+                  <span class="">Личные данные</span>
+              </a>
+
+        <a class="aside__item-menu" href="">
+                  <span>Место работы</span>
+              </a>
+      </div>
+    </div>
+
+    <div class="aside__item">
+      <div class="aside__item-caption">
+        <span>Связи</span>
+
+        <button class="aside__button" type="button">
+                  <img class="aside__icon" src="./assets/images/look.png" alt="">
+              </button>
+      </div>
+
+      <div class="aside__item-content">
+        <a class="aside__item-menu" href="">
+                  <span class="">Ищу связи</span>
+              </a>
+
+        <a class="aside__item-menu" href="">
+                  <span class="">Имею связи</span>
+              </a>
+      </div>
+    </div>
+
+  </aside>
+
+  <div class="info-connect">
+    <div class="info-connect__header">
+      <nav class="nav nav-tabs ui-tabs ui-tabs--info-connect" id="nav-tab" role="tablist">
+        <a class="ui-tabs__tab active" href="#search-communications" data-toggle="tab" role="tab" aria-controls="search-communications-tab" aria-selected="true">Ищу связи</a>
+
+        <a class="ui-tabs__tab ui-tabs__tab--disable" href="#my-communications" data-toggle="tab" role="tab" aria-controls="my-communications-tab" aria-selected="false">
+                  Имею связи
+                  <img class="ui-tabs__tab-icon" src="./assets/images/icn-close.png" alt="">
+              </a>
+      </nav>
+
+      <button class="info-connect__close close close--light" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+          </button>
+    </div>
+
+    <div class="info-connect__content tab-content" id="nav-tabContent">
+      <div class="info-connect__tab scroll-fix scroll-fix--mrg fade show active" id="search-communications" role="tabpanel" aria-labelledby="search-communications-tab">
+        <div class="communications-list">
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_search.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-connect__tab scroll-fix scroll-fix--mrg fade" id="my-communications" role="tabpanel" aria-labelledby="my-communications-tab">
+        <div class="communications-list">
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_connect.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_connect.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+
+          <div class="communications-list__item">
+            <img class="communications-list__icon" src="./assets/images/icon_connect.png">
+
+            <div class="communications-list__item-content">
+              <div>
+                <a class="communications-list__link" href="#">Банковская сфера</a> -
+                <a class="communications-list__link" href="#">НарДепПроБанк</a> – Главный отдел Финансы и Кредиты, Старший менеджер
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="info-connect__load-more btn ui-button ui-button--not-upper ui-button--md ui-button--round ui-button--disabled-icon" type="button" disabled>
+              Смотреть все связи
+          </button>
+    </div>
+
+    <div class="info-connect__footer">
+      <button class="info-connect__button-massage btn ui-button ui-button--md" type="button">
+              НАПИСАТЬ СООБЩЕНИЕ
+          </button>
+    </div>
+  </div>
+  <app-notification [@slideInOut]="menuState" (messageEvent)="receiveMessage($event)"></app-notification>
+</main>
+<app-aside class="common-aside"></app-aside>

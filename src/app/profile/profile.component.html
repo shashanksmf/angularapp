@@ -1,0 +1,521 @@
+<app-header></app-header>
+
+<main class="content-inner content-inner--indent-left content-inner--auto">
+    <article class="content-inner__article">
+        <div class="content-inner__article-content">
+            <div class="profile">
+
+                <!--Личные данные-->
+                <section class="profile__item card">
+                    <div class="profile__header">Личные данные</div>
+
+                    <div class="profile__content">
+                        <div class="row">
+                            <div class="profile__data-items col-md-8">
+                                <div class="row">
+                                    <div class="profile__capt col-md-4">Имя Фамилия</div>
+                                    <div class="profile__dist col-md-8">{{profileObj.name}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="profile__capt col-md-4">Ваш e-mail</div>
+                                    <div class="profile__dist col-md-8">
+                                        <a class="ui-link ui-link--blue-light" href="mailto:{{profileObj.email}}">{{profileObj.email}}</a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="profile__capt col-md-4">Страна</div>
+                                    <div class="profile__dist col-md-8">{{profileObj.country}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="profile__capt col-md-4">Город</div>
+                                    <div class="profile__dist col-md-8">{{profileObj.city}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="profile__capt col-md-4">Статус</div>
+                                    <div class="profile__dist col-md-8">{{profileObj.status}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="profile__capt col-md-4">Дата рождения</div>
+                                    <div class="profile__dist col-md-8">{{profileObj.dob}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="profile__capt col-md-4">Пол</div>
+                                    <div class="profile__dist col-md-8">{{profileObj.floor}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="profile__capt col-md-4">Телефон</div>
+                                    <div class="profile__dist col-md-8">
+                                        <a class="ui-link ui-link--blue-light" href="tel:{{profileObj.phone}}">{{profileObj.phone}}</a>
+                                    </div>
+                                </div>
+                                <a class="profile__link" data-toggle="modal" data-target="#modalEditProfile" (click)="open(modalEditProfile)">
+                                <button class="btn ui-button ui-button--md ui-button--w280" type="button" data-toggle="modal"
+                                        data-target="#modalEditProfile">ИЗМЕНИТЬ
+                                </button>
+                                </a>
+                            </div>
+
+                            <div class="profile__avatar col-md-4">
+                                <div class="avatar avatar--180 avatar--edit">
+                                    <img [src]="profileObj.image">
+                                    <button class="avatar__edit">
+                                        Изменить фото
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!--История работы-->
+                <section class="profile__item card">
+                    <div class="profile__header">Места работы
+                        <button class="ui-button ui-button--info ui-button--info--26" type="button" data-toggle="tooltip"
+                                data-placement="top" ngbTooltip="Здесь будут текст подстказки">
+                            <img src="../../assets/images/info_profile.png" alt="">
+                        </button>
+                    </div>
+
+                    <div class="profile__content">
+                        <div class="">
+                            <div class="profile__content-item">
+                                <!--Направление - Должность-->
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <span class="profile__capt--18">Направление - Должность</span>
+                                    </div>
+
+                                    <div class="col-md-4 text-right">
+                                        <span class="profile__capt--18">Основная работа</span>
+                                    </div>
+                                </div>
+
+                                <!--Название компании:-->
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <span class="profile__dist">{{profileObj.placesOfWork.profiledist}}
+                                            <span class="profile__dist--blue">{{profileObj.placesOfWork.profiledist1}}</span>
+                                        </span>
+                                    </div>
+
+                                    <div class="col-md-4 text-right">
+                                        <span class="profile__dist">
+                                            Сайт:<a class="ui-link" href="#">{{profileObj.placesOfWork.mainjob}}</a>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Время работы-->
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <span class="profile__dist">{{profileObj.placesOfWork.date}}</span>
+                                    </div>
+                                </div>
+
+                                <!-- Редактирование-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="profile__edit-control">
+                                          <a class="profile__link" data-toggle="modal" data-target="#modalEditHistory" (click)="open(modalEditHistory)">Редактировать</a>
+                                            <a class="profile__link" href="#">Удалить</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="profile__link" data-toggle="modal" data-target="#modalEditHistory" (click)="open(modalEditHistory)">
+                        <button class="btn ui-button ui-button--md ui-button--w280" type="button" data-toggle="modal"
+                                data-target="#modalEditHistory">ДОБАВИТЬ МЕСТО РАБОТЫ
+                        </button>
+                        </a>
+                    </div>
+                </section>
+
+                <!--Ищу связи-->
+                <section class="profile__item card">
+                    <div class="profile__header">Ищу связи
+                        <button class="ui-button ui-button--info ui-button--info--26" type="button" data-toggle="tooltip"
+                                data-placement="top" ngbTooltip="Здесь будут текст подстказки">
+                            <img src="../../assets/images/info_profile.png" alt="">
+                        </button>
+                    </div>
+
+                    <div class="profile__content">
+                        <div class="">
+                            <div class="profile__content-item">
+                                <!--Направление - Должность-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <span class="profile__capt--18">Отрасль - Сегмент - Название компании</span>
+                                    </div>
+                                </div>
+
+                                <!--Название компании:-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <span class="profile__dist">
+                                          {{profileObj.Seekingcommunication.details}}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Редактирование-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="profile__edit-control">
+                                          <a class="profile__link" data-toggle="modal" data-target="#modalEditHistory" (click)="open(modalEditHistory)">Редактировать</a>
+                                            <a class="profile__link" href="#">Удалить</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="profile__link" data-toggle="modal" data-target="#modalFindComunication" (click)="open(modalFindComunication)">
+                        <button class="btn ui-button ui-button--md ui-button--w280" type="button" data-toggle="modal"
+                                data-target="#modalFindComunication">ДОБАВИТЬ СВЯЗИ
+                        </button>
+                        </a>
+                    </div>
+                </section>
+
+                <!--Имею связи-->
+                <section class="profile__item card">
+                    <div class="profile__header">Имею связи
+                        <button class="ui-button ui-button--info ui-button--info--26" type="button" data-toggle="tooltip"
+                                data-placement="top" ngbTooltip="Здесь будут текст подстказки">
+                            <img src="../../assets/images/info_profile.png" alt="">
+                        </button>
+                    </div>
+
+                    <div class="profile__content">
+                        <div class="">
+                            <div class="profile__content-item">
+                                <!--Направление - Должность-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <span class="profile__capt--18">Отрасль - Сегмент - Название компании</span>
+                                    </div>
+                                </div>
+
+                                <!--Название компании:-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <span class="profile__dist">Название компании:
+                                          {{profileObj.iHaveConnections.details}}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Редактирование-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="profile__edit-control">
+                                          <a class="profile__link" data-toggle="modal" data-target="#modalEditHistory" (click)="open(modalEditHistory)">Редактировать</a>
+                                            <a class="profile__link" href="#">Удалить</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="profile__link" data-toggle="modal" data-target="#modalFindComunication" (click)="open(modalFindComunication)">
+                        <button class="btn ui-button ui-button--md ui-button--w280" type="button" data-toggle="modal"
+                                data-target="#modalFindComunication">ДОБАВИТЬ СВЯЗИ
+                        </button>
+                      </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </article>
+    <ng-template #modalEditProfile let-c="close" let-d="dismiss">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="edit-profile">
+            <div class="edit-profile__header">
+              <a class="" href="" data-dismiss="modal" aria-label="Close" aria-hidden="true">
+                            <i class="fa fa-angle-left"></i>
+                            <span>Редактирование личных данных</span>
+                        </a>
+            </div>
+
+            <div class="edit-profile__content">
+              <form action="">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Имя</label>
+                      <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Введите имя" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Страна</label>
+                      <input type="text" class="form-control ui-input ui-input--md ui-input--themes2 typeahead" placeholder="Выберите страну" data-provide="typeahead" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Статус</label>
+                      <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Введите" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label>E-mail</label>
+                      <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Ведите E-mail" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Пол</label>
+                      <div>
+                        <label class="ui-radio-button">
+                                                <input type="radio" name="choice-sex" checked required/>
+                                                <span class="ui-radio-button__indicator"></span>
+                                                Мужчина
+                                            </label>
+
+                        <label class="ui-radio-button">
+                                                <input type="radio" name="choice-sex" required/>
+                                                <span class="ui-radio-button__indicator"></span>
+                                                Женщина
+                                            </label>
+                      </div>
+                    </div>
+
+                    <div class="edit-profile__button">
+                      <button class="btn ui-button ui-button--md ui-button--full" type="submit">СОХРАНИТЬ</button>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Фамилия</label>
+                      <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Введите фамилия" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Город</label>
+                      <input type="text" class="form-control ui-input ui-input--md ui-input--themes2 typeahead" placeholder="Выберите город" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Дата рождения</label>
+                      <input type="date" class="form-control ui-input ui-input--md ui-input--themes2" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Телефон</label>
+                      <input type="tel" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="+7 888 888 888">
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="edit-profile__avatar">
+
+                      <img class="edit-profile__image" src="./assets/images/no-photo.png" alt="">
+
+                      <div class="edit-profile__link">
+                        <a class="profile__link" data-toggle="modal" data-target="#modalEditHistory">Редактировать</a>
+                        <a href="">Удалить</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template #modalEditHistory let-c="close" let-d="dismiss">
+    <!-- <div class="modal fade" id="modalEditHistory" tabindex="-1" role="dialog" aria-labelledby="modalEditHistory" aria-hidden="true"> -->
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="edit-profile">
+            <div class="edit-profile__header">
+              <a class="" href="" data-dismiss="modal" aria-label="Close" aria-hidden="true">
+                            <i class="fa fa-angle-left"></i>
+                            <span>Редактирование истории</span>
+                        </a>
+            </div>
+
+            <div class="edit-profile__content">
+              <form action="">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="ui-radio-button">
+                                            <input type="radio" name="choice-sex" checked/>
+                                            <span class="ui-radio-button__indicator"></span>
+                                            Я собственик
+
+                                            <button class="ui-button ui-button--info ui-button--info--20" type="button" data-toggle="tooltip"
+                                                    data-placement="top"
+                                                    ngbTooltip="Аккаунт всегда открыт! Только тариф “Премиум” имеет право скрывать  аккаунт из поиска по фильтру! при нажатии текста: “Вам требуется перейти на тарифный план “Премиум”">
+                                                <img src="../../assets/images/info_profile.png" alt="">
+                                            </button>
+                                        </label>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Направление</label>
+
+                      <div class="ui-select">
+                        <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Название направления" required>
+                        <span> <i class="fa fa-chevron-down"></i></span>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Название компании</label>
+
+                      <div class="ui-select">
+                        <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Введите">
+                        <span> <i class="fa fa-chevron-down"></i></span>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Начал работать</label>
+                      <div class="date_select">
+                        <input type="text" class="date_select_input form-control ui-input ui-input--md ui-input--themes2" value="21 / 04 / 1984" required>
+                        <span class="date_select_mark">
+                                                <i class="fa fa-caret-up"></i>
+                                                <i class="fa fa-caret-down"></i>
+                                            </span>
+                      </div>
+                    </div>
+
+                    <div class="edit-profile__button">
+                      <button class="btn ui-button ui-button--md ui-button--full" type="submit">СОХРАНИТЬ</button>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="ui-radio-button">
+                                            <input type="radio" name="choice-sex2" />
+                                            <span class="ui-radio-button__indicator"></span>
+                                            Сделать основной
+
+                                            <button class="ui-button ui-button--info ui-button--info--20" type="button" data-toggle="tooltip"
+                                                    data-placement="top"
+                                                    ngbTooltip="Аккаунт всегда открыт! Только тариф “Премиум” имеет право скрывать  аккаунт из поиска по фильтру! при нажатии текста: “Вам требуется перейти на тарифный план “Премиум”">
+                                                <img src="../../assets/images/info_profile.png" alt="">
+                                            </button>
+                                        </label>
+
+                    </div>
+
+                    <div class="form-group">
+                      <label>Должность</label>
+                      <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Введите">
+                    </div>
+
+                    <div class="form-group">
+                      <label>Сайт компании</label>
+                      <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Введите">
+                    </div>
+
+                    <div class="form-group">
+                      <label>Завершил работу</label>
+                      <div class="date_select">
+                        <input type="text" class="date_select_input form-control ui-input ui-input--md ui-input--themes2" value="По настоящие время" required>
+                        <span class="date_select_mark">
+                                                <i class="fa fa-caret-up"></i>
+                                                <i class="fa fa-caret-down"></i>
+                                            </span>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-4">
+                    <div class="modal_label_text">Текст описание</div>
+                    <div class="modal_text">
+                      Краткая описание данного блока по иминению текста и ваших персональных данных, измените и сохраните что бы изменить данные.
+                    </div>
+                    <div class="modal_text">
+                      Краткая описание данного блока по иминению текста и ваших персональных данных.
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template #modalFindComunication let-c="close" let-d="dismiss">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="edit-profile">
+            <div class="edit-profile__header">
+              <a class="" href="" data-dismiss="modal" aria-label="Close" aria-hidden="true">
+                            <i class="fa fa-angle-left"></i>
+                            <span>Редактирование ищу связи</span>
+                        </a>
+            </div>
+
+            <div class="edit-profile__content">
+              <form action="">
+                <div class="row">
+                  <div class="col-md-8 pdd">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Отрасль</label>
+                        <div class="ui-select">
+                          <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Название отрасли" required>
+                          <span> <i class="fa fa-chevron-down"></i></span>
+                        </div>
+                      </div>
+
+
+                      <div class="form-group">
+                        <label>Название компании</label>
+                        <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Введите">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Сегмент</label>
+
+                        <div class="ui-select">
+                          <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Ваш сегмент">
+                          <span> <i class="fa fa-chevron-down"></i></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Кратвое описание (40 символов)</label>
+                        <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="" required>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="modal_label_text mrg--t0">Текст описание</div>
+                    <div class="modal_text">
+                      Краткая описание данного блока по иминенaию текста и ваших персональных данных, измените и сохраните что бы изменить данные.
+                    </div>
+                    <div class="modal_text">
+                      Краткая описание данного блока по иминению текста и ваших персональных данных.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="edit-profile__button">
+                      <button class="btn ui-button ui-button--md ui-button--full" type="submit">СОХРАНИТЬ</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+</main>
+<app-aside class="common-aside"></app-aside>

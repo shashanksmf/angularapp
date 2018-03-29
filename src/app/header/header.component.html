@@ -1,0 +1,438 @@
+<app-menu-left [@slideInOut]="menuState" (messageEvent)="receiveMessage($event)"></app-menu-left>
+<header class="main-header">
+    <!-- <div class="menuLeft" ><span></span>
+    </div> -->
+    <div class="main-header__menu" (click)="toggleMenu()">
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="main-header__logo">
+      <a href="main-connections.html">VDELE</a>
+    </div>
+
+    <div class="main-header__search">
+      <form class="search-block" action="#" method="get">
+        <div class="search-block__content input-group">
+
+          <button class="search-block__button ui-button" type="submit" name="search">
+                      <img src="./assets/images/search.png">
+                  </button>
+
+          <input class="search-block__input ui-input" type="text" name="q" autocomplete="off" data-provide="typeahead" placeholder="Введите название компании">
+        </div>
+      </form>
+
+    </div>
+
+    <!--Правый блок управления уведомлениями-->
+    <div class="main-header__right">
+      <div ngbDropdown  class="main-header__item">
+        <a ngbDropdownToggle class="dropdown-toggle" data-toggle="dropdown">
+                  <button class="user-plan user-plan--line" type="button" data-toggle="modal" data-target="#modalPro">Стать PRO</button>
+                  <span class="user-name">Иванов Иван Иванович</span>
+                  <div class="avatar">
+                      <img src="./assets/images/ava1.jpg" alt="User Image">
+                  </div>
+                  <span class="toggler"></span>
+              </a>
+
+        <!-- Выпадающее меню пользователя-->
+        <div ngbDropdownMenu class="dropdown-menu dropdown-menu--user-menu">
+          <div class="user-menu__header">
+            <span class="user-menu__status">Статус:</span>
+            <a class="user-menu__pro" data-toggle="modal" data-target="#modalPro" (click)="openModal(modalPro)" style="color:#374ab1">
+              PRO
+              </a>
+            <span class="user-menu__exp-date"> до 12.12.2018</span>
+            <!--<a href="#">Баланс: <span class="color_blue">100500 руб.</span></a>-->
+          </div>
+
+          <div class="user-menu__content">
+            <a class="user-menu__item" href="profile">Редактировать профиль</a>
+            <a class="user-menu__item" href="index">Выход</a>
+          </div>
+        </div>
+      </div>
+
+      <div ngbDropdown class="main-header__item dropdown messages-menu">
+        <a ngbDropdownToggle class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="./assets/images/icon_notification.png">
+                  <span class="label label-success counter counter--11 ">1</span>
+              </a>
+
+        <!-- Выпадающее меню уведомлений-->
+        <div ngbDropdownMenu class="dropdown-menu dropdown-menu--popover dropdown-menu--notifications">
+          <div class="notifications-menu">
+            <div class="notifications-menu__header">
+              <span class="">Уведомления</span>
+            </div>
+
+            <div class="notifications-menu__content scroll-fix">
+              <div class="notifications-menu__item">
+                <div class="avatar avatar--60 avatar--mrg-r15">
+                  <img src="./assets/images/ava1.jpg">
+                </div>
+                <div class="notifications-menu__user-data">
+                  <div class="notifications-menu__user-name">Пертов Петро</div>
+                  <div class="notifications-menu__dist">Опубликовал в Ищу связи</div>
+                </div>
+                <div class="notifications-menu__target">
+                  <img src="./assets/images/icn-notification-ok.svg" alt="">
+                </div>
+              </div>
+
+              <div class="notifications-menu__item">
+                <div class="avatar avatar--60 avatar--mrg-r15">
+                  <img src="./assets/images/ava1.jpg">
+                </div>
+                <div class="notifications-menu__user-data">
+                  <div class="notifications-menu__user-name">Пертов Петро</div>
+                  <div class="notifications-menu__dist">Опубликовал в Ищу связи</div>
+                </div>
+                <div class="notifications-menu__target">
+                  <img src="./assets/images/icn-notification-add.svg" alt="">
+                </div>
+              </div>
+
+              <div class="notifications-menu__item">
+                <div class="avatar avatar--60 avatar--mrg-r15">
+                  <img src="./assets/images/ava1.jpg">
+                </div>
+                <div class="notifications-menu__user-data">
+                  <div class="notifications-menu__user-name">Пертов Петро</div>
+                  <div class="notifications-menu__dist">Опубликовал в Ищу связи</div>
+                </div>
+                <div class="notifications-menu__target">
+                  <img src="./assets/images/icn-notification-delete.svg" alt="">
+                </div>
+              </div>
+            </div>
+
+            <div class="notifications-menu__footer">
+              <button class="btn ui-button ui-button--md ui-button--full" type="button" onclick="window.location.href='notice.html'">Перейти в уведомления
+                          </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div ngbDropdown class="main-header__item dropdown">
+        <a ngbDropdownToggle class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="./assets/images/icon_chat.png">
+                  <span class="label label-success counter counter--11">1</span>
+              </a>
+
+        <!--Выпадающее меню сообщений-->
+        <div ngbDropdownMenu class="dropdown-menu dropdown-menu--popover dropdown-menu--messages">
+          <div class="notifications-menu notifications-menu--message">
+            <div class="notifications-menu__header">
+              <span class="">У вас новые сообщения</span>
+            </div>
+
+            <div class="notifications-menu__content scroll-fix">
+              <div class="notifications-menu__item">
+                <div class="avatar avatar--60 avatar--mrg-r15">
+                  <img src="./assets/images/ava1.jpg">
+                </div>
+
+                <div class="notifications-menu__user-data">
+                  <div class="notifications-menu__user-name">Пертов Петро</div>
+                  <div class="notifications-menu__dist">Привет как дела. что нового, когда поговорим?</div>
+                  <div class="notifications-menu__data-message">25 минут</div>
+                </div>
+              </div>
+
+              <div class="notifications-menu__item">
+                <div class="avatar avatar--60 avatar--mrg-r15">
+                  <img src="https://habrastorage.org/getpro/moikrug/uploads/user/100/008/899/5/avatar/medium_799bad5a3b514f096e69bbc4a7896cd9.jpg">
+                </div>
+
+                <div class="notifications-menu__user-data">
+                  <div class="notifications-menu__user-name">Пащук Илья</div>
+                  <div class="notifications-menu__dist">Давайте сотрудничать</div>
+                  <div class="notifications-menu__data-message">1 день</div>
+                </div>
+              </div>
+
+              <div class="notifications-menu__item">
+                <div class="avatar avatar--60 avatar--mrg-r15">
+                  <img src="https://habrastorage.org/getpro/moikrug/uploads/user/100/008/872/6/avatar/medium_4e85f5b23f494375835e8d4091c9601e.png">
+                </div>
+
+                <div class="notifications-menu__user-data">
+                  <div class="notifications-menu__user-name">Василий Черепанский</div>
+                  <div class="notifications-menu__dist">Ну дак что когда приступаем</div>
+                  <div class="notifications-menu__data-message">2 дня</div>
+                </div>
+              </div>
+
+              <div class="notifications-menu__item">
+                <div class="avatar avatar--60 avatar--mrg-r15">
+                  <img src="https://habrastorage.org/getpro/moikrug/uploads/user/100/014/933/9/avatar/medium_dac9e2c27775e7c69b73e7e0432966e4.jpeg">
+                </div>
+
+                <div class="notifications-menu__user-data">
+                  <div class="notifications-menu__user-name">Victoria Blatova</div>
+                  <div class="notifications-menu__dist">Здравствуйте. Спасибо за Ваш отклик. В ближайшие дни будем рассматривать!
+                  </div>
+                  <div class="notifications-menu__data-message">3 дня</div>
+                </div>
+              </div>
+
+              <div class="notifications-menu__item">
+                <div class="avatar avatar--60 avatar--mrg-r15">
+                  <img src="https://habrastorage.org/getpro/moikrug/uploads/user/100/008/899/5/avatar/medium_799bad5a3b514f096e69bbc4a7896cd9.jpg">
+                </div>
+
+                <div class="notifications-menu__user-data">
+                  <div class="notifications-menu__user-name">Пащук Илья</div>
+                  <div class="notifications-menu__dist">Давайте сотрудничать</div>
+                  <div class="notifications-menu__data-message">4 деня</div>
+                </div>
+              </div>
+
+              <div class="notifications-menu__item">
+                <div class="avatar avatar--60 avatar--mrg-r15">
+                  <img src="https://habrastorage.org/getpro/moikrug/uploads/user/100/008/872/6/avatar/medium_4e85f5b23f494375835e8d4091c9601e.png">
+                </div>
+
+                <div class="notifications-menu__user-data">
+                  <div class="notifications-menu__user-name">Василий Черепанский</div>
+                  <div class="notifications-menu__dist">Ну дак что когда приступаем</div>
+                  <div class="notifications-menu__data-message">12 дней</div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="notifications-menu__footer">
+              <button class="btn ui-button ui-button--md ui-button--full" type="button" onclick="window.location.href='chat.html'">Перейти в Чат
+                          </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+<ng-template #modalPro let-c="close" let-d="dismiss"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalPro" aria-hidden="true">
+  <!-- <div class="modal fade" id="modalPro" tabindex="-1" role="dialog" aria-labelledby="modalPro" aria-hidden="true"> -->
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="issue">
+        <div class="issue__header">
+          Оформить
+          <span class="issue__header--bold-text">PRO:</span>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="c('Close click')">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+        </div>
+        <div class="issue__content">
+          <a class="issue__link-beck" data-toggle="modal" data-target="#modalProInfo" data-dismiss="modal" aria-label="Close" (click)="openbenifitModal(benifitmodalPro,$event)">
+                      <i class="fa fa-angle-left"></i>
+                      <span class="issue__sub-title">Преимущества PRO аккаунта</span>
+                  </a>
+
+          <form action="">
+            <div class="issue__tariff">
+              <div class="issue__tariff-point">
+
+                <label class="issue__tariff-label">
+                                  <input class="issue__tariff_input" type="radio" name="one" checked>
+
+                                  <span class="issue__tariff-label-val issue__tariff-label-val--up">
+                                      1<span class="issue__tariff-label_disc">мес</span>
+                                  </span>
+
+                                  <span class="issue__tariff-input-round"></span>
+
+                                  <span class="issue__tariff-label-val issue__tariff-label-val--down">640
+                                      <span class="issue__tariff-label_disc">руб.</span>
+                                  </span>
+                              </label>
+
+                <label class="issue__tariff-label">
+                                  <input class="issue__tariff_input" type="radio" name="one">
+
+                                  <span class="issue__tariff-label-val issue__tariff-label-val--up">
+                                      6<span class="issue__tariff-label_disc">мес</span>
+                                  </span>
+
+                                  <span class="issue__tariff-input-round"></span>
+
+                                  <span class="issue__tariff-label-val issue__tariff-label-val--down">2470
+                                      <span class="issue__tariff-label_disc">руб.</span>
+                                  </span>
+
+                                  <span class="issue__tariff-line issue__tariff-line--half"></span>
+                              </label>
+
+                <label class="issue__tariff-label">
+                                  <input class="issue__tariff_input" type="radio" name="one">
+
+                                  <span class="issue__tariff-label-val issue__tariff-label-val--up">
+                                      12<span class="issue__tariff-label_disc">мес</span>
+                                  </span>
+
+                                  <span class="issue__tariff-input-round"></span>
+
+                                  <span class="issue__tariff-label-val issue__tariff-label-val--down">3240
+                                      <span class="issue__tariff-label_disc">руб.</span>
+                                  </span>
+
+                                  <span class="issue__tariff-line issue__tariff-line--all"></span>
+                              </label>
+              </div>
+
+              <span class="issue__tariff-line"></span>
+            </div>
+
+            <div class="issue_method_pay">
+              <div class="issue__sub-title">
+                Оплатите одним из способов:
+              </div>
+
+              <div class="issue_buttons">
+                <button class="issue_button" disabled>
+                                  <img src="img/visa-mc.png" alt="">
+                                  <span>Картами Visa и Mastercard</span>
+                              </button>
+
+                <button class="issue_button issue_button--active">
+                                  <img src="img/yandex-money.png" alt="">
+                                  <span>Яндекс.Деньги</span>
+                              </button>
+
+                <button class="issue_button" disabled>
+                                  <img src="img/webmoney-ok.png" alt="">
+                                  <span>WebMoney</span>
+                              </button>
+
+                <button class="issue_button">
+                                  <img src="img/sberbank.png" alt="">
+                                  <span>Сбербанк России</span>
+                              </button>
+
+                <button class="issue_button">
+                                  <img src="img/alfabank.png" alt="">
+                                  <span>Альфа-Клик</span>
+                              </button>
+
+                <button class="issue_button">
+                                  <img src="img/robokassa.png" alt="">
+                                  <span>Робокасса</span>
+                              </button>
+              </div>
+
+              <button class="btn ui-button ui-button--md ui-button--full issue_button_order" type="button">ОФОРМИТЬ PRO
+                          </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #benifitmodalPro let-c="close" let-d="dismiss" class="modal fade" id="benifitmodalPro" tabindex="-1" role="dialog" aria-labelledby="modalProInfo" aria-hidden="true">
+  <div class="modal-dialog" role="document" (click)="d('Cross click')">
+    <div class="modal-content">
+      <div class="issue">
+        <div class="issue__header">Преимущества<span class="issue__header--bold-text">PRO</span> аккаунта:
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="c('Close click')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+        </div>
+        <div class="issue__content">
+          <!--<a class="issue__link-beck" href="">-->
+          <!--<i class="fa fa-angle-left"></i>-->
+          <!--<span class="issue__sub-title">Преимущества PRO аккаунта</span>-->
+          <!--</a>-->
+
+          <form action="">
+            <div class="issue__tariff">
+              <div class="issue__tariff-point">
+
+                <label class="issue__tariff-label">
+                                    <input class="issue__tariff_input" type="radio" name="one" checked>
+
+                                    <span class="issue__tariff-label-val issue__tariff-label-val--up">
+                                        1<span class="issue__tariff-label_disc">мес</span>
+                                    </span>
+
+                                    <span class="issue__tariff-input-round"></span>
+
+                                    <span class="issue__tariff-label-val issue__tariff-label-val--down">640
+                                        <span class="issue__tariff-label_disc">руб.</span>
+                                    </span>
+                                </label>
+
+                <label class="issue__tariff-label">
+                                    <input class="issue__tariff_input" type="radio" name="one">
+
+                                    <span class="issue__tariff-label-val issue__tariff-label-val--up">
+                                        6<span class="issue__tariff-label_disc">мес</span>
+                                    </span>
+
+                                    <span class="issue__tariff-input-round"></span>
+
+                                    <span class="issue__tariff-label-val issue__tariff-label-val--down">2470
+                                        <span class="issue__tariff-label_disc">руб.</span>
+                                    </span>
+
+                                    <span class="issue__tariff-line issue__tariff-line--half"></span>
+                                </label>
+
+                <label class="issue__tariff-label">
+                                    <input class="issue__tariff_input" type="radio" name="one">
+
+                                    <span class="issue__tariff-label-val issue__tariff-label-val--up">
+                                        12<span class="issue__tariff-label_disc">мес</span>
+                                    </span>
+
+                                    <span class="issue__tariff-input-round"></span>
+
+                                    <span class="issue__tariff-label-val issue__tariff-label-val--down">3240
+                                        <span class="issue__tariff-label_disc">руб.</span>
+                                    </span>
+
+                                    <span class="issue__tariff-line issue__tariff-line--all"></span>
+                                </label>
+              </div>
+
+              <span class="issue__tariff-line"></span>
+            </div>
+
+            <div class="issue__info">
+
+              <div class="issue__info-item">
+                <div class="issue__image">
+                  <img src="./assets/images/first-pic.png" alt="">
+                </div>
+
+                <div class="">
+                  Расширенный поиск по фильру
+                </div>
+              </div>
+
+              <div class="issue__info-item">
+                <div class="issue__image">
+                  <img src="./assets/images/first-pic.png" alt="">
+                </div>
+
+                <div class="">
+                  Расширенный поиск по фильру
+                </div>
+              </div>
+
+            </div>
+            <div class="text-center">
+              <button class="btn ui-button ui-button--md ui-button--full issue_button_order" type="button" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#modalPro">ОФОРМИТЬ PRO
+                            </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

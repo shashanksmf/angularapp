@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('route-sample App', () => {
+describe('illyadeveloper-vdele App', () => {
   let page: AppPage;
 
   beforeEach(() => {

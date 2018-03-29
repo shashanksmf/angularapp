@@ -1,0 +1,170 @@
+<div class="login-form">
+    <!-- Авторизация-->
+    <div class="login-form__inner auth-in login-form__inner--is-active">
+        <div class="login-form__caption">Авторизация</div>
+        <div class="login-form__sub-title">В деле - связи решают все!</div>
+
+        <form action="">
+            <div class="login-form__field">
+                <input type="email" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Email">
+            </div>
+
+            <div class="login-form__field">
+                <input type="password" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Пароль">
+                <span class="show_password"></span>
+            </div>
+
+            <div class="login-form__forget">
+                <label class="ui-checkbox">
+                    <input class="ui-checkbox__input" type="checkbox">
+
+                    <span class="ui-checkbox__mark">
+                    <i class="fas fa-check"></i>
+                </span>
+
+                    <span class="ui-checkbox__title" >Запомнить меня</span>
+                </label>
+
+                <button type="button" class="login-form__link singRecoverOpen" data-toggle="tab" (click)="passwordRecovery()">Забыли пароль?</button>
+            </div>
+
+            <!--<div class="soc_title">Вход через социальные сети</div>-->
+
+            <div class="login-form__field">
+                <button class="btn ui-button btn-block ui-button--md" type="submit">Войти</button>
+            </div>
+
+            <div class="login-form__field">
+                <button class="btn ui-button btn-block ui-button--green ui-button--md singOutOpen" data-toggle="tab">Регистрация</button>
+            </div>
+
+            <div class="login-form_or-separate">
+                <span></span>
+                <div>или</div>
+                <span></span>
+            </div>
+
+            <div class="row row-social">
+                <div class="col col-xs-3">
+                    <button class="btn ui-button ui-button--md ui-button--fb">
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <div class="col col-xs-3">
+                    <button class="btn ui-button ui-button--md ui-button--vk">
+                        <i class="fab fa-vk" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <div class="col col-xs-3">
+                    <button class="btn ui-button ui-button--md ui-button--ok">
+                        <i class="fab fa-odnoklassniki" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <div class="col col-xs-3">
+                    <button class="btn ui-button ui-button--md ui-button--ln">
+                        <!--<i class="fab fa-linkedin-in" aria-hidden="true"></i>-->
+                        <img src="../../assets/images/moimir.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <!-- Регистрация-->
+    <div class="login-form__inner auth-out" [style.display]="isPasswordRecovery">
+        <div class="login-form__caption">Регистрация</div>
+
+        <form action="">
+            <div class="login-form__sub-title">
+                <button type="button" class="login-form__link singInOpen" data-toggle="tab">< Авторизация</button>
+            </div>
+
+            <div class="login-form__field">
+                <input type="email" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Email">
+            </div>
+
+            <div class="login-form__field">
+                <input type="password" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Пароль">
+                <span class="show_password"></span>
+            </div>
+
+            <div class="login-form__field">
+                <input type="password" class="form-control ui-input ui-input--md ui-input--themes2" required
+                       placeholder="Повторите пароль">
+                <span class="show_password"></span>
+            </div>
+
+            <div class="login-form__field">
+                <button class="btn ui-button btn-block ui-button--md">Регистрация</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Восстановления пароля-->
+    <div class="login-form__inner auth-rec">
+        <div class="login-form__caption">Восстановления пароля</div>
+        <div class="login-form__sub-title">
+            <button type="button" class="login-form__link singInOpen" data-toggle="tab">
+                <
+                <!--<i class="fas fa-angle-left"></i>-->
+                Авторизация
+            </button>
+        </div>
+
+        <form action="">
+            <div class="login-form__field">
+                <input type="email" class="form-control ui-input ui-input--md ui-input--themes2" required
+                       placeholder="Введите Ваш Email">
+                <!--<span class="show_password"></span>-->
+            </div>
+
+            <div class="login-form__field">
+                <button class="btn ui-button btn-block ui-button--md singRecoverDataOpen" data-toggle="tab">ОТПРАВИТЬ</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Восстановления пароля ввод данных-->
+    <div class="login-form__inner auth-rec-data">
+        <div class="login-form__caption">Восстановления пароля</div>
+        <div class="login-form__sub-title">
+            <button type="button" class="login-form__link singInOpen" data-toggle="tab">< Авторизация</button>
+        </div>
+
+        <form action="">
+
+            <div class="login-form__field">
+                <input type="password" class="form-control ui-input ui-input--md ui-input--themes2" required
+                       placeholder="Введите новый пароль">
+                <!--<span class="show_password"></span>-->
+            </div>
+
+            <div class="login-form__field">
+                <input type="password" class="form-control ui-input ui-input--md ui-input--themes2" required
+                       placeholder="Подтвердите новый пароль">
+                <!--<span class="show_password"></span>-->
+            </div>
+
+            <div class="login-form__field">
+                <button class="btn ui-button btn-block ui-button--md sendDataOpen" data-toggle="tab">ПОДТВЕРДИТЬ</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Данные отправленны -->
+    <div class="login-form__inner auth-done">
+
+        <div class="login-form__success-data">
+            <span class="login-form__success-icon"></span>
+            Вам на почту пришло письмо, подтвердите вашу регистрацию по ссылке. Спасибо.
+        </div>
+    </div>
+
+    <div class="login-form__footer">
+        <footer class="main_footer"> © 2018 Vdele - Все права защищены.</footer>
+    </div>
+</div>

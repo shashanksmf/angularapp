@@ -1,38 +1,64 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { MatButtonModule, MatCheckboxModule, MatGridListModule, MatInputModule, MatIconModule } from '@angular/material';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { Login1Component } from './login1/login1.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { OrthoLoginComponent } from './ortho-login/ortho-login.component';
-
-const appRoutes: Routes = [
-  { path: 'home', component: AppComponent },
-  { path: 'login', component: Login1Component },
-  { path: 'login2', component: LoginComponent },
-  { path: 'orthoLogin', component: OrthoLoginComponent },
-]
+import { Bootstrap } from 'bootstrap';
+import { HeaderComponent } from './header/header.component';
+import { ContentComponent } from './content/content.component';
+import { ChatComponent } from './chat/chat.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { BenefitsComponent } from './benefits/benefits.component';
+import { AccountActivatedComponent } from './account-activated/account-activated.component';
+import { NotificationComponent } from './notification/notification.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MenuLeftComponent } from './menu-left/menu-left.component';
+import { ProfileComponent } from './profile/profile.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AsideComponent } from './aside/aside.component';
+import { MainPeopleComponent } from './main-people/main-people.component';
+import { AsideLeftComponent } from './aside-left/aside-left.component';
+import { ModalComponent } from './modal/modal.component';
+import { MainComponent } from './main/main.component';
+import { IndexComponent } from './index/index.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { PeoplesComponent } from './peoples/peoples.component';
+import { ChatListComponent } from './chat-list/chat-list.component';
+import { IndustryItemComponent } from './industry-item/industry-item.component';
+// import { AppRoutingModule } from './/app-routing.module';
+const routes: Routes = [
+  { path: '', component: ChatComponent },
+  { path: 'mainpeoples', component: MainPeopleComponent },
+  { path: 'chat', component: ChatComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'index', component: IndexComponent },
+  { path: '**', component: ChatComponent },
+];
 @NgModule({
   declarations: [
     AppComponent,
-    Login1Component,
-    LoginComponent,
-    HomeComponent,
-    OrthoLoginComponent
+    HeaderComponent,
+    ContentComponent,
+    ChatComponent,
+    CheckoutComponent,
+    BenefitsComponent,
+    AccountActivatedComponent,
+    NotificationComponent,
+    MenuLeftComponent,
+    ProfileComponent,
+    AsideComponent,
+    MainPeopleComponent,
+    AsideLeftComponent,
+    ModalComponent,
+    MainComponent,
+    IndexComponent,
+    LoginFormComponent,
+    PeoplesComponent,
+    ChatListComponent,
+    IndustryItemComponent,
   ],
   imports: [
-    BrowserModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatGridListModule,
-    MatInputModule,
-    MatIconModule,
-    BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes,{ enableTracing: true })
+    BrowserModule,NgbModule.forRoot(),BrowserAnimationsModule,RouterModule.forRoot(routes),FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

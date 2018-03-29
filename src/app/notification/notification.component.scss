@@ -1,0 +1,112 @@
+:host {
+  background: #fff;
+  color: #000;
+  position: fixed;
+  left: auto;
+  top: 73px;
+  right: 0;
+  bottom: 0;
+  width: 20%;
+  min-width: 500px;
+  z-index: 9999;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.info-contact1{
+  font-size: 18px;
+ line-height: 3;
+ font-weight: 400;
+ list-style: none;
+}
+.tags-holder__tag{
+  display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: inherit;
+    -webkit-align-items: inherit;
+    -ms-flex-align: inherit;
+    align-items: inherit;
+    height: 48px;
+    margin: auto 5px;
+    padding: 8px 20px;
+    font-size: var(--main-fn-text--15);
+    font-weight: 500;
+    line-height: 1;
+    color: #687784;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+    background: var(--main-border);
+    cursor: pointer;
+}
+
+.info-contact__buttons button{
+color:#fff;
+}
+
+  .info-contact {
+    position: fixed;
+    top: 72px;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    width: 500px;
+    background-color: white;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+    transform: translateX(500px);
+    transition: transform .8s ease-in-out;
+  }
+
+  .info-contact--active {
+    transform: translateX(0);
+  }
+
+  .info-contact__container {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    padding: 40px 30px 10px;
+  }
+
+  .info-contact__head {
+    flex-flow: column;
+    flex: 0 1 auto;
+  }
+
+  .info-contact__head .tags-holder {
+    display: block;
+    margin: auto;
+    text-align: center;
+  }
+
+  .info-contact__content {
+    position: relative;
+    flex: 1 1 100%;
+    max-height: inherit;
+    overflow: auto;
+  }
+
+  .info-contact__time-line {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 0;
+    overflow-y: auto;
+  }
+
+  .info-contact__buttons {
+    display: flex;
+    margin: 40px auto;
+  }
+
+  .info-contact__buttons button {
+    flex: 1 1 auto;
+  }
+
+  .info-contact__buttons button:first-child {
+    margin-right: 16px;
+  }
+  .time-line__date{
+    position: relative;
+  }

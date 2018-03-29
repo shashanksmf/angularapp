@@ -1,0 +1,20 @@
+<div class=""  *ngFor='let industry of industryArr'>
+  <section class="industry__item card card--hov-blue">
+      <div class="">
+          <div class="industry__crumbs">
+              <div class="industry__icon">
+                  <img [src]="industry.image">
+              </div>
+
+              <div class="industry__line">
+                  <a href="">{{industry.name}}</a> - <a href="">{{industry.name1}}</a> - {{industry.extra}}
+              </div>
+          </div>
+
+          <div class="industry__description">{{industry.description}}</div>
+      </div>
+      <button class="btn ui-button ui-button--md ui-button--w160" type="button" data-toggle="modal" data-target="#modalNewMessagePeople"
+              (click)="open('modalNewMessagePeople')">НАПИСАТЬ
+      </button>
+  </section>
+</div>
