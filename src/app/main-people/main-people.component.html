@@ -1,131 +1,142 @@
 <app-header></app-header>
 
 <main class="content-inner content-inner--main-user">
-  <app-aside-left class="aside-left-fix"></app-aside-left>
+  <app-aside-left class="aside-left-fix">
+  </app-aside-left>
 
-    <article class="content-inner__article" id="Menumargin">
-      <div class="content-inner__article-header">
-              <div class="tags-holder ">
-                  <button class="tags-holder__tag " type="button">Поиск связи</button>
-                  <button class="tags-holder__tag" type="button">Мои связи</button>
-                  <button class="tags-holder__tag tags-holder__tag--active" type="button">Заявки
+  <article class="content-inner__article" id="Menumargin">
+    <div class="content-inner__article-header">
+      <div class="tags-holder ">
+        <button class="tags-holder__tag " type="button">Поиск связи</button>
+        <button class="tags-holder__tag" type="button">Мои связи</button>
+        <button class="tags-holder__tag tags-holder__tag--active" type="button">Заявки
                       <span class="tags-holder__tag-counter">12</span>
                   </button>
 
-                  <button class="tags-holder__tag tags-holder__tag--right" type="button"> Кто смотрел</button>
-              </div>
-          </div>
-        <div class="content-inner__article-content">
-            <div class="industry">
-                <div class="industry__list">
-                  <!-- modalShould be on same page always -->
-                  <div class=""  *ngFor='let industry of industryArr'>
-                    <section class="industry__item card card--hov-blue">
-                        <div class="">
-                            <div class="industry__crumbs">
-                                <div class="industry__icon">
-                                    <img [src]="industry.image">
-                                </div>
-
-                                <div class="industry__line">
-                                    <a href="">{{industry.name}}</a> - <a href="">{{industry.name1}}</a> - {{industry.extra}}
-                                </div>
-                            </div>
-
-                            <div class="industry__description">{{industry.description}}</div>
-                        </div>
-                        <button class="btn ui-button ui-button--md ui-button--w160" type="button" data-toggle="modal" data-target="#modalNewMessagePeople"
-                                (click)="open(modalNewMessagePeople)">НАПИСАТЬ
-                        </button>
-                    </section>
+        <button class="tags-holder__tag tags-holder__tag--right" type="button"> Кто смотрел</button>
+      </div>
+    </div>
+    <div class="content-inner__article-content">
+      <div class="industry">
+        <div class="industry__list">
+          <!-- modalShould be on same page always -->
+          <div class="" *ngFor='let industry of industryArr'>
+            <section class="industry__item card card--hov-blue">
+              <div class="">
+                <div class="industry__crumbs">
+                  <div class="industry__icon">
+                    <img [src]="industry.image">
                   </div>
 
-
-
-
+                  <div class="industry__line">
+                    <a href="">{{industry.name}}</a> - <a href="">{{industry.name1}}</a> - {{industry.extra}}
+                  </div>
                 </div>
 
-                <div class="notice_load_more">
-                    <button class="ui-button--more" type="button">
+                <div class="industry__description">{{industry.description}}</div>
+              </div>
+              <div class="btn-group ui-group--dropdown" ngbDropdown>
+
+
+                <button class="btn ui-button ui-button--md ui-button--w160" type="button" data-toggle="modal" data-target="#modalNewMessagePeople" (click)="open(modalNewMessagePeople)">НАПИСАТЬ
+                          </button>
+                <button class="btn ui-button ui-button--md ui-button--more-dot " type="button" ngbDropdownToggle>
+                                <span></span><span></span><span></span>
+                            </button>
+
+                <div ngbDropdownMenu>
+                  <a class="dropdown-item" (click)='sidebar()'>Удалить из связей</a>
+                </div>
+              </div>
+            </section>
+          </div>
+
+
+
+
+        </div>
+
+        <div class="notice_load_more">
+          <button class="ui-button--more" type="button">
                         <span class="ui-button_icon"></span>
                         Показать еще
                     </button>
-                </div>
-            </div>
         </div>
+      </div>
+    </div>
 
-        <div class="content-inner__article-footer">
-            <div class="main_footer">Все права защищены © 2017 vdele.ru.</div>
-        </div>
-    </article>
-    <!-- <app-aside></app-aside> -->
-    <!-- @import "aside.html"
+    <div class="content-inner__article-footer">
+      <div class="main_footer">Все права защищены © 2017 vdele.ru.</div>
+    </div>
+  </article>
+  <!-- <app-aside></app-aside> -->
+  <!-- @import "aside.html"
     @import "info-connect.html"
     @import "info-contact.html" -->
-    <ng-template #modalNewMessagePeople let-c="close" let-d="dismiss">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="new-message">
-            <div class="new-message__header">
-              Новое сообщение
-              <button class="close close--white" type="button" data-dismiss="modal" aria-label="Close" (click)="c('Close click')">
+  <ng-template #modalNewMessagePeople let-c="close" let-d="dismiss">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="new-message">
+          <div class="new-message__header">
+            Новое сообщение
+            <button class="close close--white" type="button" data-dismiss="modal" aria-label="Close" (click)="c('Close click')">
                             <span aria-hidden="true">&times;</span>
                         </button>
-            </div>
+          </div>
 
-            <div class="new-message__content">
-              <div class="new-message__info-recipient">
-                <div class="avatar avatar--50 avatar--mrg-r15">
-                  <img src="./assets/images/ava1.jpg">
-                </div>
-
-                <div>
-                  <div class="new-message__info-name">Василий Пупкин</div>
-                  <div class="new-message__info-desc">IT - Специалист - Руководитель</div>
-                </div>
+          <div class="new-message__content">
+            <div class="new-message__info-recipient">
+              <div class="avatar avatar--50 avatar--mrg-r15">
+                <img src="./assets/images/ava1.jpg">
               </div>
 
-              <textarea class="new-message__input-field ui-textarea ui-textarea--not-resize ui-textarea--full ui-textarea--no-border" placeholder="Текст вашего сообщения">Привет! Я хочу добавить тебя в свои связи.</textarea>
+              <div>
+                <div class="new-message__info-name">Василий Пупкин</div>
+                <div class="new-message__info-desc">IT - Специалист - Руководитель</div>
+              </div>
             </div>
 
-            <div class="new-message__footer">
-              <div class="stealth-mode">
-                <span>Режим неведимки</span>
+            <textarea class="new-message__input-field ui-textarea ui-textarea--not-resize ui-textarea--full ui-textarea--no-border" placeholder="Текст вашего сообщения">Привет! Я хочу добавить тебя в свои связи.</textarea>
+          </div>
 
-                <label class="ui-switcher">
+          <div class="new-message__footer">
+            <div class="stealth-mode">
+              <span>Режим неведимки</span>
+
+              <label class="ui-switcher">
                                 <input type="checkbox" checked>
                                 <span class="ui-switcher__slider ui-switcher__round"></span>
                             </label>
 
-                <span class="user-plan user-plan--sm">PRO</span>
-              </div>
-              <div class="">
-                <button class="btn ui-button ui-button--md" type="button" data-dismiss="modal" data-toggle="modal" aria-label="Close" data-target="#modalDoneSend" (click)="openModal1(modalDoneSend)">
+              <span class="user-plan user-plan--sm">PRO</span>
+            </div>
+            <div class="">
+              <button class="btn ui-button ui-button--md" type="button" data-dismiss="modal" data-toggle="modal" aria-label="Close" data-target="#modalDoneSend" (click)="openModal1(modalDoneSend)">
                   ОТПРАВИТЬ
                 </button>
-              </div>
             </div>
           </div>
         </div>
       </div>
-    </ng-template>
-    <ng-template #modalDoneSend let-c="close" let-d="dismiss">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="new-message">
-            <div class="new-message__header">
-              Новое сообщение
-              <button class="close close--white" type="button" data-dismiss="modal" aria-label="Close" (click)="c('Close click')">
+    </div>
+  </ng-template>
+  <ng-template #modalDoneSend let-c="close" let-d="dismiss">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="new-message">
+          <div class="new-message__header">
+            Новое сообщение
+            <button class="close close--white" type="button" data-dismiss="modal" aria-label="Close" (click)="c('Close click')">
                             <span aria-hidden="true">&times;</span>
                         </button>
-            </div>
+          </div>
 
-            <div class="new-message__content new-message__content--done">
-              Ваше сообщение отправлено.
-            </div>
+          <div class="new-message__content new-message__content--done">
+            Ваше сообщение отправлено.
           </div>
         </div>
       </div>
-    </ng-template>
+    </div>
+  </ng-template>
 </main>
-<app-aside class="common-aside"></app-aside>
+<app-aside class="common-aside"  ></app-aside>

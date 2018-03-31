@@ -7,11 +7,11 @@
   right: 0;
   bottom: 0;
   width: 20%;
-  min-width: 500px;
-  z-index: 9999;
+  min-width: 460px;
+  z-index: 1;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
-.info-contact1{
+.info-connect1{
   font-size: 18px;
  line-height: 3;
  font-weight: 400;
@@ -109,4 +109,13 @@ color:#fff;
   }
   .time-line__date{
     position: relative;
+  }
+  .info-connect__tab .communications-list{
+    position: relative;
+  }
+  .ui-tabs--info-connect a{
+    padding: 0;
+  }
+  .communications-list{
+    height: 500px;
   }

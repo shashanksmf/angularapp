@@ -1,6 +1,8 @@
-import { Component, OnInit,Output, EventEmitter } from '@angular/core';
-import {NgbModal, ModalDismissReasons, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
-
+import { Component, OnInit,trigger, state, style, transition, animate, Input, Output,EventEmitter } from '@angular/core';
+import {NgbModal, ModalDismissReasons, NgbModalRef, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import { ShareDataService } from "../share-data.service";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AsideComponent} from "../aside/aside.component"
 @Component({
   selector: 'app-main-people',
   templateUrl: './main-people.component.html',
@@ -22,12 +24,23 @@ export class MainPeopleComponent implements OnInit {
 
   modalRef: NgbModalRef;
   closeResult: string;
-  constructor(private modalService: NgbModal) { }
+  message: string;
+  sideBarIsOpened = false;
+  menuState2:string='in';
+  constructor(private modalService: NgbModal,private data: ShareDataService,public AsideComponent:AsideComponent,public BrowserAnimationsModule:BrowserAnimationsModule) { }
   closeModal(): void{
        let localModalRef = this.modalRef;
        localModalRef.close();
    }
+   newMessage() {
+     //his.toggleMenu();
+      this.data.changeMessage("Hello from Sibling")
+    }
   open(modalPro) {
+    this.AsideComponent.toggleMenu();
+    this.newMessage();
+    this.data.currentMessage.subscribe(message => this.message = "hello")
+    this.sideBarIsOpened=!this.sideBarIsOpened;
     // this.closeModal();
     this.modalRef = this.modalService.open(modalPro);
     this.modalRef.result.then((result) => {
@@ -51,6 +64,17 @@ export class MainPeopleComponent implements OnInit {
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
+  }
+    @Output() userEv = new EventEmitter<string>();
+  sidebar(){
+    if(this.menuState2=='out'){
+      this.menuState2="in";
+    }
+    else{
+        this.menuState2="out";
+    }
+    console.log("inside side bar",this.menuState2);
+    this.userEv.emit(this.menuState2)
   }
 
   private getDismissReason(reason: any): string {

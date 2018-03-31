@@ -1,0 +1,134 @@
+<div class="info-connect1">
+  <div class="info-connect__header">
+      <nav class="nav nav-tabs ui-tabs ui-tabs--info-connect" id="nav-tab" role="tablist">
+          <a [className]="first" (click)="firstTab()" data-toggle="tab" role="tab"
+             aria-controls="search-communications-tab"
+             aria-selected="true">Ищу связи</a>
+
+          <a [className]="second" (click)="secondTab()" data-toggle="tab" role="tab"
+             aria-controls="my-communications-tab" aria-selected="false">
+              Имею связи
+              <img class="ui-tabs__tab-icon" src="../assets/images/icn-close.png" alt="">
+          </a>
+      </nav>
+
+      <button class="info-connect__close close close--light" type="button" data-dismiss="modal" aria-label="Close" (click)="close()">
+          <span aria-hidden="true">×</span>
+      </button>
+  </div>
+
+
+
+  <div class="info-connect__content tab-content" id="nav-tabContent">
+    <div [class]="firstTabCss" id="search-communications" role="tabpanel" aria-labelledby="search-communications-tab">
+      <div class="communications-list">
+        <div class="communications-list__item" *ngFor='let arr1 of arrGroup '>
+            <img class="communications-list__icon" [src]="arr1.src">
+
+            <div class="communications-list__item-content">
+                <div>
+                    <a class="communications-list__link" href="#">{{arr1.first}}</a> -
+                    <a class="communications-list__link" href="#">{{arr1.second}}</a> –
+                    {{arr1.desc}}
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div [className]="secondTabCss" id="my-communications" role="tabpanel" aria-labelledby="my-communications-tab">
+      <div class="communications-list">
+        <div class="communications-list__item">
+          <img class="communications-list__icon" src="./img/icon_connect.png">
+
+          <div class="communications-list__item-content">
+            <div>
+              <a class="communications-list__link" href="#">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Banking sector</font>
+                </font>
+              </a>
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;"> -
+                </font>
+              </font>
+              <a class="communications-list__link" href="#">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">NarDepProBank</font>
+                </font>
+              </a>
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;"> - Chief Department of Finance and Credits, Senior Manager
+                </font>
+              </font>
+            </div>
+          </div>
+        </div>
+
+        <div class="communications-list__item">
+          <img class="communications-list__icon" src="./img/icon_connect.png">
+
+          <div class="communications-list__item-content">
+            <div>
+              <a class="communications-list__link" href="#">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Banking sector</font>
+                </font>
+              </a>
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;"> -
+                </font>
+              </font>
+              <a class="communications-list__link" href="#">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">NarDepProBank</font>
+                </font>
+              </a>
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;"> - Chief Department of Finance and Credits, Senior Manager
+                </font>
+              </font>
+            </div>
+          </div>
+        </div>
+
+        <div class="communications-list__item">
+          <img class="communications-list__icon" src="./img/icon_connect.png">
+
+          <div class="communications-list__item-content">
+            <div>
+              <a class="communications-list__link" href="#">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Banking sector</font>
+                </font>
+              </a>
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;"> -
+                </font>
+              </font>
+              <a class="communications-list__link" href="#">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">NarDepProBank</font>
+                </font>
+              </a>
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;"> - Chief Department of Finance and Credits, Senior Manager
+                </font>
+              </font>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="info-connect__load-more btn ui-button ui-button--not-upper ui-button--md ui-button--round ui-button--disabled-icon" type="button" disabled=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+            View all links
+        </font></font></button>
+  </div>
+
+  <div class="info-connect__footer">
+    <button class="info-connect__button-massage btn ui-button ui-button--md" type="button">
+            НАПИСАТЬ СООБЩЕНИЕ
+        </button>
+  </div>
+</div>

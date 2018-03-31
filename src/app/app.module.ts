@@ -25,13 +25,18 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { PeoplesComponent } from './peoples/peoples.component';
 import { ChatListComponent } from './chat-list/chat-list.component';
 import { IndustryItemComponent } from './industry-item/industry-item.component';
+import {ShareDataService} from './share-data.service';
+import { MainConnectionComponent } from './main-connection/main-connection.component';
+import { InfoConnectComponent } from './info-connect/info-connect.component';
+import { InfoContactComponent } from './info-contact/info-contact.component'
 // import { AppRoutingModule } from './/app-routing.module';
 const routes: Routes = [
-  { path: '', component: IndexComponent },
+  { path: '', component: ChatComponent },
   { path: 'mainpeoples', component: MainPeopleComponent },
   { path: 'chat', component: ChatComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'index', component: IndexComponent },
+  { path: 'mainconnection', component: MainConnectionComponent },
   { path: '**', component: ChatComponent },
 ];
 @NgModule({
@@ -56,11 +61,14 @@ const routes: Routes = [
     PeoplesComponent,
     ChatListComponent,
     IndustryItemComponent,
+    MainConnectionComponent,
+    InfoConnectComponent,
+    InfoContactComponent,
   ],
   imports: [
     BrowserModule,NgbModule.forRoot(),BrowserAnimationsModule,RouterModule.forRoot(routes),FormsModule
   ],
-  providers: [],
+  providers: [ShareDataService,AsideComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

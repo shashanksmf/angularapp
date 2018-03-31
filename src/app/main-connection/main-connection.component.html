@@ -1,0 +1,100 @@
+<app-header></app-header>
+<main class="content-inner content-inner--main-user">
+  <app-aside-left></app-aside-left>
+  <article class="content-inner__article">
+    <div class="content-inner__article-content">
+      <div class="industry">
+        <div class="industry__list">
+          <section class="industry__item card card--hov-blue"  *ngFor="let arr1 of menuArr">
+            <div class="">
+              <div class="industry__crumbs">
+                <div class="industry__icon">
+                  <img [src]="arr1.src">
+                </div>
+
+                <div class="industry__line">
+                  <a href="">{{arr1.first}}</a> - <a href="">{{arr1.second}}</a> -{{arr1.third}}
+                </div>
+              </div>
+
+              <div class="industry__description">{{arr1.ind_desc}}</div>
+            </div>
+
+            <button class="btn ui-button ui-button--md ui-button--w160" type="button" data-toggle="modal" data-target="#modalNewMessage" (click)='openModal(modalNewMessage)'>{{arr1.btn_desc}}
+                        </button>
+          </section>
+
+
+        </div>
+
+        <div class="notice_load_more">
+          <button class="ui-button--more" type="button">
+                        <span class="ui-button_icon"></span>
+                        Показать еще
+                    </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-inner__article-footer">
+      <div class="main_footer">Все права защищены © 2017 vdele.ru.</div>
+    </div>
+  </article>
+
+  <app-aside></app-aside>
+  <app-info-connect [@slideInOut]="menuState" (infoConnectEvent)="receiveUser($event)"></app-info-connect>
+  <app-info-contact [@slideInOut]="menuState1" (infoContactEvent)="receiveUserEvent($event)"></app-info-contact>
+</main>
+<ng-template #modalNewMessage let-c="close" let-d="dismiss">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="new-message">
+        <div class="new-message__header">
+          Новое сообщение
+          <button class="close close--white" type="button" data-dismiss="modal" aria-label="Close" (click)="c('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+        </div>
+
+        <div class="new-message__content">
+          <textarea class="new-message__input-field ui-textarea ui-textarea--not-resize ui-textarea--full ui-textarea--no-border" placeholder="Текст вашего сообщения">Привет! Я хочу добавить тебя в свои связи.</textarea>
+        </div>
+
+        <div class="new-message__footer">
+          <div class="stealth-mode">
+            <span>Режим неведимки</span>
+
+            <label class="ui-switcher">
+                            <input type="checkbox" checked>
+                            <span class="ui-switcher__slider ui-switcher__round"></span>
+                        </label>
+
+            <span class="user-plan user-plan--sm">PRO</span>
+          </div>
+          <div class="">
+            <button class="btn ui-button ui-button--md" type="button" data-dismiss="modal" data-toggle="modal" aria-label="Close" data-target="#modalDoneSend" (click)='openModal1(modalDoneSend)'>ОТПРАВИТЬ
+                        </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #modalDoneSend let-c="close" let-d="dismiss">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="new-message">
+        <div class="new-message__header">
+          Новое сообщение
+          <button class="close close--white" type="button" data-dismiss="modal" aria-label="Close" (click)="c('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+        </div>
+
+        <div class="new-message__content new-message__content--done">
+          Ваше сообщение отправлено.
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

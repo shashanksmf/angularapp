@@ -684,7 +684,7 @@ button {
 }
 .ui-input--md {
   height: 48px;
-  padding: 0;
+  padding-left: 20px;
   font-size: 15px;
 }
 
@@ -694,6 +694,7 @@ button {
 
 .ui-input--silver {
   border: none;
+  padding-left: 20px;
   background-color: var(--main-silver);
 }
 
@@ -845,6 +846,7 @@ button {
   box-shadow: 0 0 0 2px var(--main-blue);
   transform: none !important;
   overflow: hidden;
+  left:0 !important;
 }
 .ui-group--dropdown .dropdown-item {
   display: inline-flex;
@@ -1488,7 +1490,7 @@ a:hover {
 .menu-left__item {
   display: flex;
   align-items: center;
-  width: fit-content;
+  width: 95%;
   margin: 0;
   padding: 20px 30px;
   text-align: left;
@@ -1544,6 +1546,9 @@ a:hover {
 }
 .card--hov-blue:hover {
   background-color: var(--main-blue-hard-light);
+}
+.card--hov-blue .dropdown-menu a{
+  color:#fff;
 }
 
 .chat {

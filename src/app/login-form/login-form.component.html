@@ -1,10 +1,10 @@
 <div class="login-form">
     <!-- Авторизация-->
-    <div class="login-form__inner auth-in login-form__inner--is-active">
+    <div [className]="firstClass">
         <div class="login-form__caption">Авторизация</div>
         <div class="login-form__sub-title">В деле - связи решают все!</div>
 
-        <form action="">
+        <form action="" ngNativeValidate>
             <div class="login-form__field">
                 <input type="email" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Email">
             </div>
@@ -35,7 +35,7 @@
             </div>
 
             <div class="login-form__field">
-                <button class="btn ui-button btn-block ui-button--green ui-button--md singOutOpen" data-toggle="tab">Регистрация</button>
+                <button class="btn ui-button btn-block ui-button--green ui-button--md singOutOpen" data-toggle="tab" (click)='signOutOpen()'>Регистрация</button>
             </div>
 
             <div class="login-form_or-separate">
@@ -75,12 +75,12 @@
     </div>
 
     <!-- Регистрация-->
-    <div class="login-form__inner auth-out" [style.display]="isPasswordRecovery">
+    <div [className]="secondClass">
         <div class="login-form__caption">Регистрация</div>
 
-        <form action="">
+        <form action="" ngNativeValidate>
             <div class="login-form__sub-title">
-                <button type="button" class="login-form__link singInOpen" data-toggle="tab">< Авторизация</button>
+                <button type="button" class="login-form__link singInOpen" data-toggle="tab"  (click)='moveToLogin()'>< Авторизация</button>
             </div>
 
             <div class="login-form__field">
@@ -105,62 +105,61 @@
     </div>
 
     <!-- Восстановления пароля-->
-    <div class="login-form__inner auth-rec">
+    <div [className]="thirdClass">
         <div class="login-form__caption">Восстановления пароля</div>
         <div class="login-form__sub-title">
-            <button type="button" class="login-form__link singInOpen" data-toggle="tab">
+            <button type="button" class="login-form__link singInOpen" data-toggle="tab" (click)='moveToLogin()'>
                 <
                 <!--<i class="fas fa-angle-left"></i>-->
                 Авторизация
             </button>
         </div>
 
-        <form action="">
+        <form action="" ngNativeValidate>
             <div class="login-form__field">
                 <input type="email" class="form-control ui-input ui-input--md ui-input--themes2" required
-                       placeholder="Введите Ваш Email">
+                       placeholder="Введите Ваш Email" #resetPass>
                 <!--<span class="show_password"></span>-->
             </div>
 
             <div class="login-form__field">
-                <button class="btn ui-button btn-block ui-button--md singRecoverDataOpen" data-toggle="tab">ОТПРАВИТЬ</button>
+                <button type='submit' class="btn ui-button btn-block ui-button--md singRecoverDataOpen" data-toggle="tab" (click)='passwordRecoveryBlock(resetPass.value)'>ОТПРАВИТЬ</button>
             </div>
         </form>
     </div>
 
     <!-- Восстановления пароля ввод данных-->
-    <div class="login-form__inner auth-rec-data">
+    <div [className]="passwordRecoveryCss">
         <div class="login-form__caption">Восстановления пароля</div>
         <div class="login-form__sub-title">
-            <button type="button" class="login-form__link singInOpen" data-toggle="tab">< Авторизация</button>
+            <button type="button" class="login-form__link singInOpen" data-toggle="tab"  (click)='moveToLogin()'>< Авторизация</button>
         </div>
 
-        <form action="">
+        <form action="" ngNativeValidate>
 
             <div class="login-form__field">
                 <input type="password" class="form-control ui-input ui-input--md ui-input--themes2" required
-                       placeholder="Введите новый пароль">
+                       placeholder="Введите новый пароль" #pass>
                 <!--<span class="show_password"></span>-->
             </div>
 
             <div class="login-form__field">
                 <input type="password" class="form-control ui-input ui-input--md ui-input--themes2" required
-                       placeholder="Подтвердите новый пароль">
+                       placeholder="Подтвердите новый пароль" #cpass>
                 <!--<span class="show_password"></span>-->
             </div>
 
             <div class="login-form__field">
-                <button class="btn ui-button btn-block ui-button--md sendDataOpen" data-toggle="tab">ПОДТВЕРДИТЬ</button>
+                <button class="btn ui-button btn-block ui-button--md sendDataOpen" data-toggle="tab" (click)='passwordConfirm(pass.value,cpass.value)'>ПОДТВЕРДИТЬ</button>
             </div>
         </form>
     </div>
 
     <!-- Данные отправленны -->
-    <div class="login-form__inner auth-done">
-
+    <div [className]="confirmCss">
         <div class="login-form__success-data">
             <span class="login-form__success-icon"></span>
-            Вам на почту пришло письмо, подтвердите вашу регистрацию по ссылке. Спасибо.
+            Вам на почту пришло письмо,<br> подтвердите вашу регистрацию по<br> ссылке. Спасибо.
         </div>
     </div>
 

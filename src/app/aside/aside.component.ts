@@ -1,5 +1,5 @@
 import { Component, OnInit,trigger, state, style, transition, animate, Input, Output,EventEmitter } from '@angular/core';
-
+import { ShareDataService } from "../share-data.service";
 @Component({
   selector: 'app-aside',
   templateUrl: './aside.component.html',
@@ -20,18 +20,30 @@ import { Component, OnInit,trigger, state, style, transition, animate, Input, Ou
 })
 export class AsideComponent implements OnInit {
 
-  constructor() { }
+  constructor(private data: ShareDataService) { }
+  menu:string='';
   menuState:string = 'out';
   message:string;
+  isOpen=false;
+  debugger;
+  @Input() userEv;
+  // @Input() menu;
+
   ngOnInit() {
+    console.log(this.menu)
   }
+
   toggleMenu() {
     // 1-line if statement that toggles the value:
     this.menuState = this.menuState === 'out' ? 'in' : 'out';
   }
   receiveMessage($event) {
-   this.message = $event
-   this.toggleMenu();
+    console.log("$event==>",$event)
+  if($event!=''){
+    this.message = $event
+    this.toggleMenu();
+  }
    // console.log(this.message);
  }
+
 }
