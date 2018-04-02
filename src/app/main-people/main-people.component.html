@@ -139,4 +139,5 @@
     </div>
   </ng-template>
 </main>
-<app-aside class="common-aside"  ></app-aside>
+<app-aside class="common-aside" ></app-aside>
+<app-notification [@slideInOut]="menuState2" (messageEvent)="receiveMessage($event)"></app-notification>
