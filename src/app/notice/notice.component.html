@@ -1,0 +1,42 @@
+<app-header></app-header>
+<main class="content-inner content-inner--indent-left content-inner--auto">
+    <article class="content-inner__article">
+        <div class="content-inner__article-content">
+            <div class="notice">
+                <div class="notice_list">
+                    
+
+                    <section class="notice_item card"  *ngFor="let arr1 of noticeArr">
+                        <div class="avatar avatar--mrg-r15">
+                            <div class="avatar__status"></div>
+                            <img [src]="arr1.src">
+                        </div>
+
+                        <div class="notice_info">
+                            <span class="notice_name">{{arr1.notice_name}}</span>,
+                            <span class="notice_message">{{arr1.notice_message}}</span>
+                        </div>
+
+                        <div class="notice_date">
+                            {{arr1.notice_date}}
+                        </div>
+                    </section>
+
+
+                </div>
+                <div class="notice_load_more">
+                    <button class="ui-button--more" type="button">
+                        <span class="ui-button_icon"></span>
+                        Показать еще
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-inner__article-footer">
+            <div class="main_footer">Все права защищены © 2017 vdele.ru.</div>
+        </div>
+    </article>
+    <app-aside></app-aside>
+
+</main>

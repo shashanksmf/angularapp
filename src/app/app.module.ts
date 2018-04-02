@@ -28,7 +28,8 @@ import { IndustryItemComponent } from './industry-item/industry-item.component';
 import {ShareDataService} from './share-data.service';
 import { MainConnectionComponent } from './main-connection/main-connection.component';
 import { InfoConnectComponent } from './info-connect/info-connect.component';
-import { InfoContactComponent } from './info-contact/info-contact.component'
+import { InfoContactComponent } from './info-contact/info-contact.component';
+import { NoticeComponent } from './notice/notice.component'
 // import { AppRoutingModule } from './/app-routing.module';
 const routes: Routes = [
   { path: '', component: ChatComponent },
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'index', component: IndexComponent },
   { path: 'mainconnection', component: MainConnectionComponent },
+  { path: 'notice', component: NoticeComponent },
   { path: '**', component: ChatComponent },
 ];
 @NgModule({
@@ -64,6 +66,7 @@ const routes: Routes = [
     MainConnectionComponent,
     InfoConnectComponent,
     InfoContactComponent,
+    NoticeComponent,
   ],
   imports: [
     BrowserModule,NgbModule.forRoot(),BrowserAnimationsModule,RouterModule.forRoot(routes),FormsModule
