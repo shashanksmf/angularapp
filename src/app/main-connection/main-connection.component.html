@@ -43,7 +43,7 @@
 
   <app-aside></app-aside>
   <app-info-connect [@slideInOut]="menuState" (infoConnectEvent)="receiveUser($event)"></app-info-connect>
-  <app-info-contact [@slideInOut]="menuState1" (infoContactEvent)="receiveUserEvent($event)"></app-info-contact>
+  <app-info-contact [@slideInOut]="menuState1"></app-info-contact>
 </main>
 <ng-template #modalNewMessage let-c="close" let-d="dismiss">
   <div class="modal-dialog" role="document">
