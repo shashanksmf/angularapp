@@ -29,7 +29,7 @@
     <div class="main-header__right">
       <div ngbDropdown  class="main-header__item">
         <a ngbDropdownToggle class="dropdown-toggle" data-toggle="dropdown">
-                  <button class="user-plan user-plan--line" type="button" data-toggle="modal" data-target="#modalPro">Стать PRO</button>
+                  <button class="user-plan user-plan--line" type="button" data-toggle="modal" data-target="#modalPro" (click)='checkforfirst(modalPro)'>Стать PRO</button>
                   <span class="user-name">Иванов Иван Иванович</span>
                   <div class="avatar">
                       <img src="./assets/images/ava1.jpg" alt="User Image">
@@ -427,7 +427,7 @@
 
             </div>
             <div class="text-center">
-              <button class="btn ui-button ui-button--md ui-button--full issue_button_order" type="button" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#modalPro">ОФОРМИТЬ PRO
+              <button class="btn ui-button ui-button--md ui-button--full issue_button_order" type="button" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#modalPro" (click)="openModal(modalPro)" >ОФОРМИТЬ PRO
                             </button>
             </div>
           </form>

@@ -69,7 +69,7 @@ export class MainPeopleComponent implements OnInit {
     // const modalRef = this.modalService.open(modalPro);
   }
   openModal1(modalPro) {
-    this.toggleMenu();
+    // this.toggleMenu();
     console.log("inside openmodal 1");
     this.closeModal();
     this.modalRef = this.modalService.open(modalPro);

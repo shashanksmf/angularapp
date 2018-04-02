@@ -163,7 +163,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="profile__edit-control">
-                                          <a class="profile__link" data-toggle="modal" data-target="#modalEditHistory" (click)="open(modalEditHistory)">Редактировать</a>
+                                          <a class="profile__link" data-toggle="modal" data-target="#modalFindComunication" (click)="open(modalFindComunication)">Редактировать</a>
                                             <a class="profile__link" href="#">Удалить</a>
                                         </div>
                                     </div>
@@ -210,7 +210,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="profile__edit-control">
-                                          <a class="profile__link" data-toggle="modal" data-target="#modalEditHistory" (click)="open(modalEditHistory)">Редактировать</a>
+                                          <a class="profile__link" data-toggle="modal" data-target="#modalEditComunication" (click)="open(modalEditComunication)">Редактировать</a>
                                             <a class="profile__link" href="#">Удалить</a>
                                         </div>
                                     </div>
@@ -239,12 +239,12 @@
             </div>
 
             <div class="edit-profile__content">
-              <form action="">
+              <form action="" ngNativeValidate>
                 <div class="row">
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Имя</label>
-                      <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Введите имя" required>
+                      <input type="text" name='' class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Введите имя" required>
                     </div>
 
                     <div class="form-group">
@@ -338,7 +338,7 @@
             </div>
 
             <div class="edit-profile__content">
-              <form action="">
+              <form action="" ngNativeValidate>
                 <div class="row">
                   <div class="col-md-4">
                     <div class="form-group">
@@ -349,7 +349,7 @@
 
                                             <button class="ui-button ui-button--info ui-button--info--20" type="button" data-toggle="tooltip"
                                                     data-placement="top"
-                                                    ngbTooltip=''>
+                                                    ngbTooltip='Аккаунт всегда открыт! Только тариф “Премиум” имеет право скрывать  аккаунт из поиска по фильтру! при нажатии текста: “Вам требуется перейти на тарифный план “Премиум”'>
                                                 <img src="../../assets/images/info_profile.png" alt="">
                                             </button>
                                         </label>
@@ -398,7 +398,7 @@
 
                                             <button class="ui-button ui-button--info ui-button--info--20" type="button" data-toggle="tooltip"
                                                     data-placement="top"
-                                                    ngbTooltip="">
+                                                    ngbTooltip="Аккаунт всегда открыт! Только тариф “Премиум” имеет право скрывать  аккаунт из поиска по фильтру! при нажатии текста: “Вам требуется перейти на тарифный план “Премиум”">
                                                 <img src="../../assets/images/info_profile.png" alt="">
                                             </button>
                                         </label>
@@ -457,7 +457,7 @@
             </div>
 
             <div class="edit-profile__content">
-              <form action="">
+              <form action="" ngNativeValidate>
                 <div class="row">
                   <div class="col-md-8 pdd">
                     <div class="col-md-6">
@@ -516,6 +516,105 @@
           </div>
         </div>
       </div>
+    </ng-template>
+    <ng-template #modalEditComunication let-c="close" let-d="dismiss">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="edit-profile">
+            <div class="edit-profile__header">
+              <a class="" href="" data-dismiss="modal" aria-label="Close" aria-hidden="true">
+                            <i class="fa fa-angle-left"></i>
+                            <span>Редактирование имею связи</span>
+                        </a>
+            </div>
+
+            <div class="edit-profile__content">
+              <form action="" ngNativeValidate>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="ui-radio-button">
+                                            <input type="radio" name="choice-sex" checked required/>
+                                            <span class="ui-radio-button__indicator"></span>
+                                            Я собственик
+                                            <button class="info_button" type="button">i</button>
+                                        </label>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Отрасль</label>
+                      <div class="ui-select">
+                        <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Название отрасли" required>
+                        <span> <i class="fa fa-chevron-down"></i></span>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Направление</label>
+                      <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Название направление">
+                    </div>
+
+                    <div class="form-group">
+                      <label>Название компании</label>
+                      <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="" value="Россиия">
+                    </div>
+
+                    <div class="edit-profile__button">
+                      <button class="btn ui-button ui-button--md ui-button--full" type="submit">СОХРАНИТЬ</button>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="ui-radio-button">
+                                            <input type="radio" name="choice-sex" checked required/>
+                                            <span class="ui-radio-button__indicator"></span>
+                                            Я работаю здесь
+                                            <button class="info_button" type="button">i</button>
+                                        </label>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Сегмент</label>
+                      <div class="ui-select">
+                        <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Введите">
+                        <span> <i class="fa fa-chevron-down"></i></span>
+                      </div>
+
+                      <!--<div class="">-->
+                      <!--<select class="selectpicker">-->
+                      <!--<option>Mustard</option>-->
+                      <!--<option>Ketchup</option>-->
+                      <!--<option>Relish</option>-->
+                      <!--</select>-->
+                      <!--</div>-->
+
+                    </div>
+
+                    <div class="form-group">
+                      <label>Должность</label>
+                      <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" placeholder="Название должности">
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-4">
+                    <div class="modal_label_text">Текст описание</div>
+                    <div class="modal_text">
+                      Краткая описание данного блока по иминению текста и ваших персональных данных, измените и сохраните что бы изменить данные.
+                    </div>
+                    <div class="modal_text">
+                      Краткая описание данного блока по иминению текста и ваших персональных данных.
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- </div> -->
     </ng-template>
 </main>
 <app-aside class="common-aside"></app-aside>

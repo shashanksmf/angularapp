@@ -1,117 +1,104 @@
 <div class="aside-left tab-content">
-  <!-- связи-->
-  <div class="aside-left__section aside-left__section--is-open" id="connects-menu">
-    <div class="aside-left__header">
-      <img class="aside-left__icon" src="../../assets/images/icon_connect.png" alt="">
-      <span class="aside-left__title">Связи</span>
+    <!-- связи-->
+    <div class="aside-left__section aside-left__section--is-open" id="connects-menu">
+        <div class="aside-left__header">
+            <img class="aside-left__icon" src="img/icon_connect.png" alt="">
+            <span class="aside-left__title">Связи</span>
+        </div>
+
+        <nav class="nav nav-tabs ui-tabs" id="nav-tab" role="tablist">
+            <a [className]="tab1css" data-toggle="tab" role="tab" aria-controls="nav-home"
+               aria-selected="true" (click)='tab1Active()'>ИЩУ СВЯЗИ</a>
+
+            <a [className]="tab2css"  data-toggle="tab" role="tab"
+               aria-controls="nav-profile" aria-selected="false" (click)='tab2Active()'>ИМЕЮ СВЯЗИ</a>
+        </nav>
+
+        <div class="aside-left__content tab-content" id="nav-tabContent">
+
+            <div [className]="tab1ContentCss" id="1a" role="tabpanel" aria-labelledby="nav-home-tab">
+                <form ngNativeValidate>
+                    <div class="ui-group">
+                        <label class="ui-group__label">Выбор страны</label>
+                        <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" required>
+                    </div>
+
+                    <div class="ui-group">
+                        <label class="ui-group__label">Город</label>
+                        <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" required>
+                    </div>
+
+                    <div class="ui-group ui-group--disabled">
+                        <label class="ui-group__label">Отрасль
+                            <button class="ui-button ui-button--info" type="button">
+                                <img src="img/icn-close.png" alt="">
+                            </button>
+                        </label>
+                        <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" required>
+                    </div>
+
+                    <div class="ui-group ui-group--disabled">
+                        <label class="ui-group__label">Сегмент
+                            <button class="ui-button ui-button--info" type="button">
+                                <img src="img/icn-close.png" alt="">
+                            </button>
+                        </label>
+                        <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" required>
+                    </div>
+
+                    <button type="submit" class="btn ui-button btn-block ui-button--md btn-block mrg--t30">Фильтр</button>
+                </form>
+            </div>
+
+            <div [className]="tab2ContentCss" id="2a" role="tabpanel" aria-labelledby="nav-home-tab">
+            </div>
+        </div>
     </div>
 
-    <nav class="nav nav-tabs ui-tabs" id="nav-tab" role="tablist">
-      <ngb-tabset>
+    <!-- люди-->
+    <div class="aside-left__section" id="people-menu">
+        <div class="aside-left__header">
+            <img class="aside-left__icon" src="img/people-menu.svg" alt="">
+            <span class="aside-left__title">Люди</span>
+        </div>
 
-        <ngb-tab title="ИЩУ СВЯЗИ" class="ui-tabs__tab active" data-toggle="tab" role="tab" aria-controls="nav-home" aria-selected="true">
-
-          <ng-template ngbTabContent>
-            <div class="tab-pane active" id="1a" role="tabpanel" aria-labelledby="nav-home-tab">
-              <form>
+        <div class="aside-left__content">
+            <form>
                 <div class="ui-group">
-                  <label class="ui-group__label">Выбор страны</label>
-                  <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" required>
+                    <label class="ui-group__label">Выбор страны</label>
+                    <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="">
                 </div>
 
                 <div class="ui-group">
-                  <label class="ui-group__label">Город</label>
-                  <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" required>
+                    <label class="ui-group__label">Город</label>
+                    <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="">
+                </div>
+
+                <div class="ui-group">
+                    <label class="ui-group__label">Статус</label>
+                    <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="">
                 </div>
 
                 <div class="ui-group ui-group--disabled">
-                  <label class="ui-group__label">Отрасль
-                                  <button class="ui-button ui-button--info" type="button">
-                                      <img src="../../assets/images/icn-close.png" alt="">
-                                  </button>
-                              </label>
-                  <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" required>
+                    <label class="ui-group__label">Отрасль
+                        <button class="ui-button ui-button--info" type="button">
+                            <img src="img/icn-close.png" alt="">
+                        </button>
+                    </label>
+                    <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" required disabled>
                 </div>
 
                 <div class="ui-group ui-group--disabled">
-                  <label class="ui-group__label">Сегмент
-                                  <button class="ui-button ui-button--info" type="button">
-                                      <img src="../../assets/images/icn-close.png" alt="">
-                                  </button>
-                              </label>
-                  <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" required>
+                    <label class="ui-group__label">Сегмент
+                        <button class="ui-button ui-button--info" type="button">
+                            <img src="img/icn-close.png" alt="">
+                        </button>
+                    </label>
+                    <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" required disabled>
                 </div>
 
                 <button type="submit" class="btn ui-button btn-block ui-button--md btn-block mrg--t30">Фильтр</button>
-              </form>
-            </div>
-          </ng-template>
-        </ngb-tab>
-        <ngb-tab>
-          <ng-template ngbTabTitle class="ui-tabs__tab" data-toggle="tab" role="tab" aria-controls="nav-profile" aria-selected="false"><b>ИМЕЮ СВЯЗИ</b></ng-template>
-          <ng-template ngbTabContent>
-            <div class="tab-pane" id="2a" role="tabpanel" aria-labelledby="nav-home-tab">
-            </div>
-          </ng-template>
-        </ngb-tab>
-      </ngb-tabset>
-      <!-- <a class="ui-tabs__tab active" href="#1a" data-toggle="tab" role="tab" aria-controls="nav-home" aria-selected="true">ИЩУ СВЯЗИ</a>
-
-      <a class="ui-tabs__tab" href="#2a" data-toggle="tab" role="tab" aria-controls="nav-profile" aria-selected="false">ИМЕЮ СВЯЗИ</a> -->
-    </nav>
-
-    <!-- <div class="aside-left__content tab-content" id="nav-tabContent">
-
-
-
-
-    </div> -->
-  </div>
-
-  <!-- люди-->
-  <div class="aside-left__section" id="people-menu">
-    <div class="aside-left__header">
-      <img class="aside-left__icon" src="../../assets/images/people-menu.svg" alt="">
-      <span class="aside-left__title">Люди</span>
+            </form>
+        </div>
     </div>
-
-    <div class="aside-left__content">
-      <form>
-        <div class="ui-group">
-          <label class="ui-group__label">Выбор страны</label>
-          <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="">
-        </div>
-
-        <div class="ui-group">
-          <label class="ui-group__label">Город</label>
-          <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="">
-        </div>
-
-        <div class="ui-group">
-          <label class="ui-group__label">Статус</label>
-          <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="">
-        </div>
-
-        <div class="ui-group ui-group--disabled">
-          <label class="ui-group__label">Отрасль
-                        <button class="ui-button ui-button--info" type="button">
-                            <img src="../../assets/images/icn-close.png" alt="">
-                        </button>
-                    </label>
-          <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" required disabled>
-        </div>
-
-        <div class="ui-group ui-group--disabled">
-          <label class="ui-group__label">Сегмент
-                        <button class="ui-button ui-button--info" type="button">
-                            <img src="../../assets/images/icn-close.png" alt="">
-                        </button>
-                    </label>
-          <input type="text" class="form-control ui-input ui-input--md ui-input--themes2" required disabled>
-        </div>
-
-        <button type="submit" class="btn ui-button btn-block ui-button--md btn-block mrg--t30">Фильтр</button>
-      </form>
-    </div>
-  </div>
 </div>

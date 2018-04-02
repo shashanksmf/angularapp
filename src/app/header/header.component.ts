@@ -20,6 +20,7 @@ import { NgbModal, NgbActiveModal, ModalDismissReasons, NgbModalRef } from '@ng-
 export class HeaderComponent implements OnInit {
   modalRef: NgbModalRef;
   closeResult: string;
+  num:number=0;
   constructor(private modalService: NgbModal) { }
   closeModal(): void{
        let localModalRef = this.modalRef;
@@ -100,5 +101,11 @@ export class HeaderComponent implements OnInit {
     this.toggleMenu();
     // console.log(this.message);
   }
+  checkforfirst(modalPro){
+    this.num++;
+    if(this.num==1){
+      this.openModal(modalPro);
+    }
 
+  }
 }
