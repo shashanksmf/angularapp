@@ -22,7 +22,7 @@ export class LoginFormComponent implements OnInit {
   }
   signOutOpen() {
     this.firstClass = 'login-form__inner auth-in';
-    this.thirdClass = 'login-form__inner auth-rec'
+    this.thirdClass = 'login-form__inner auth-rec';
     this.secondClass = 'login-form__inner auth-out login-form__inner--is-active';
   }
   passwordRecoveryBlock(val) {
@@ -54,5 +54,19 @@ export class LoginFormComponent implements OnInit {
     this.passwordRecoveryCss = 'login-form__inner auth-rec-data';
     this.confirmCss='login-form__inner auth-done';
   }
-
+  checkreg(email,pass,cpass){
+    if(pass==''){
+      return;
+    }
+    if(cpass==''){
+      return;
+    }
+    if(email==''){
+      return;
+    }
+    else{
+      console.log("inside")
+      this.moveToLogin();
+    }
+  }
 }

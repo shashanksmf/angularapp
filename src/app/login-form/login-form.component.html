@@ -35,7 +35,7 @@
             </div>
 
             <div class="login-form__field">
-                <button class="btn ui-button btn-block ui-button--green ui-button--md singOutOpen" data-toggle="tab" (click)='signOutOpen()'>Регистрация</button>
+                <button type="button" class="btn ui-button btn-block ui-button--green ui-button--md singOutOpen" data-toggle="tab" (click)='signOutOpen()'>Регистрация</button>
             </div>
 
             <div class="login-form_or-separate">
@@ -84,22 +84,22 @@
             </div>
 
             <div class="login-form__field">
-                <input type="email" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Email">
+                <input type="email" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Email" #email1>
             </div>
 
             <div class="login-form__field">
-                <input type="password" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Пароль">
+                <input type="password" class="form-control ui-input ui-input--md ui-input--themes2" required placeholder="Пароль" #pass1>
                 <span class="show_password"></span>
             </div>
 
             <div class="login-form__field">
                 <input type="password" class="form-control ui-input ui-input--md ui-input--themes2" required
-                       placeholder="Повторите пароль">
+                       placeholder="Повторите пароль" #cpass1>
                 <span class="show_password"></span>
             </div>
 
             <div class="login-form__field">
-                <button class="btn ui-button btn-block ui-button--md" (click)='moveToLogin()'>Регистрация</button>
+                <button type="submit" class="btn ui-button btn-block ui-button--md" (click)='checkreg(email1.value,pass1.value,cpass1.value)'>Регистрация</button>
             </div>
         </form>
     </div>
