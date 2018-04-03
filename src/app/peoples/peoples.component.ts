@@ -14,10 +14,18 @@ export class PeoplesComponent implements OnInit {
   ngOnInit() {
     console.log("=----",this.peopleArr);
   }
+  selected:any;
   @Output() userEvent = new EventEmitter<string>();
   changeChat(id:string) {
+    this.selected = id;
     this.arr = [];
 
     this.userEvent.emit(id)
   }
+  isActive(item) {
+      return this.selected === item;
+  };
+  isOpen(item) {
+      return this.selected === item;
+  };
 }

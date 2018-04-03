@@ -54,4 +54,5 @@ export class LoginFormComponent implements OnInit {
     this.passwordRecoveryCss = 'login-form__inner auth-rec-data';
     this.confirmCss='login-form__inner auth-done';
   }
+
 }

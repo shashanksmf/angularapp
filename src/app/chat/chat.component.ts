@@ -38,7 +38,10 @@ export class ChatComponent {
   senderId: number = 11111;
   peopleArr = [{ id: 1, name: 'Dmitry', message: [], images: './assets/images/ava1.jpg', lastMessage: '' },
   { id: 2, name: 'Dmitry1', message: [], images: './assets/images/ava_big.jpg', lastMessage: '' }, { id: 3, name: 'Dmitry2', message: [], images: './assets/images/ava1.jpg', lastMessage: '' }, { id: 4, name: 'Dmitry3', message: [], images: './assets/images/ava1.jpg', lastMessage: '' }
-    , { id: 5, name: 'Dmitry4', message: [], images: './assets/images/ava2.jpg', lastMessage: '' }, { id: 6, name: 'Dmitry5', message: [], images: './assets/images/ava1.jpg', lastMessage: '' }, { id: 7, name: 'Dmitry6', message: [], images: './assets/images/ava1.jpg', lastMessage: '' },
+    , { id: 5, name: 'Dmitry4', message: [
+      {date:1522733622118,receiveId:1,receiverImage:"./assets/images/ava2.jpg",senderId:11111,senderImage:"./assets/images/ava1.jpg",senderMsg:"<p>Привет! </p><p>Я уже за столом, подожди немного, сейчас занят</p><p>Я тебя отпишу сам! Как сам?</p>",senderName:"Василий Мванов"},
+      {date:1522733622118,receiveId:1,receiverImage:"./assets/images/ava1.jpg",senderId:5,senderImage:"./assets/images/ava2.jpg",senderMsg:"<p>Привет! </p><p>Я уже за столом, подожди немного, сейчас занят</p><p>Я тебя отпишу сам! Как сам?</p>",senderName:"Василий Мванов"},
+    ], images: './assets/images/ava2.jpg', lastMessage: '' }, { id: 6, name: 'Dmitry5', message: [], images: './assets/images/ava1.jpg', lastMessage: '' }, { id: 7, name: 'Dmitry6', message: [], images: './assets/images/ava1.jpg', lastMessage: '' },
   { id: 8, name: 'Dmitry7', message: [], images: './assets/images/ava1.jpg', lastMessage: '' }];
 
   receiverName: string = this.peopleArr[0].name;
@@ -169,10 +172,10 @@ export class ChatComponent {
     this.date = Date.now();
     this.chatarr.push({ senderMsg: title, date: this.date, senderId: this.senderId, receiveId: this.id, senderName: this.senderName, senderImage: this.senderImage, receiverImage: this.receiverImage });
     this.textValue = '';
+    console.log(this.chatarr)
     for (this.i = 0; this.i < this.peopleArr.length; this.i++) {
       if (this.peopleArr[this.i].id == this.id) {
         this.peopleArr[this.i].message = this.chatarr;
-        console.log(this.peopleArr[this.i])
       }
     }
   }

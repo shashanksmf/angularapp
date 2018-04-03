@@ -1,5 +1,5 @@
 <div class="" *ngFor='let people of peopleArr'>
-  <div class="chat__item" (click)="changeChat(people.id)">
+  <div class="chat__item" (click)="changeChat(people.id)" [ngClass]="{active: isActive(people.id)}">
     <div class="avatar avatar--48 avatar--mrg-r15">
       <div class="avatar__status"></div>
       <img [src]="people.images">
@@ -7,12 +7,13 @@
 
     <div class="chat__user-data">
       <div class="chat__user-name">{{people.name}}</div>
-      <div class="chat__last-message">{{people.lastMessage}}</div>
+      <div class="chat__last-message" [innerHtml]='people.lastMessage'></div>
     </div>
 
     <div class="chat__user-time">
       <div class="chat__time">12:43</div>
-      <div class="chat__counter counter counter--24">2</div>
+      <div class="chat__counter counter counter--24" [ngClass]="{hide: isOpen(people.id)}">{{people.message.length}}</div>
+      <!-- <div class="chat__counter counter counter--24">2</div> -->
     </div>
   </div>
 </div>

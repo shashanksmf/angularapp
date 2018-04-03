@@ -8,7 +8,7 @@
   width: 380px;
   right:0;
 }
-@import url("https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=cyrillic,cyrillic-ext,latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,bold,boldi,700,700i,900,900i&subset=cyrillic,cyrillic-ext,latin-ext");
 :root {
   --main-fn-text--24: 1.5rem;
   --main-fn-text--22: 1.375rem;
@@ -167,7 +167,7 @@
   margin-bottom: 9px;
   line-height: 1;
   font-size: 17px;
-  font-weight: 500;
+  font-weight: bold;
   color: #9d9d9d;
 }
 
@@ -365,7 +365,7 @@ button {
   justify-content: center;
   padding: 0 1.25rem;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: bold;
   color: white;
   text-transform: uppercase;
   border-radius: 0.375rem;
@@ -591,7 +591,7 @@ button {
   padding: 2px 10px 2px 0;
   cursor: pointer;
   font-size: 17px;
-  font-weight: 500;
+  font-weight: bold;
   color: var(--radio-button);
 }
 .ui-radio-button input {
@@ -767,7 +767,7 @@ button {
   margin-bottom: -2px;
   padding: 15px 15px;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: bold;
   text-align: center;
   color: rgba(64, 64, 64, 0.3);
   text-decoration: none;
@@ -803,7 +803,7 @@ button {
   position: relative;
   padding-right: 24px;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: bold;
   color: var(--text-hard);
 }
 .ui-group__label .ui-button--info {
@@ -979,7 +979,7 @@ a:hover {
   box-shadow: 0 0 18.4px 1.6px rgba(0, 0, 0, 0.12);
 }
 .tooltip-inner a {
-  font-weight: 500;
+  font-weight: bold;
   color: #408ef8;
 }
 
@@ -1049,7 +1049,7 @@ a:hover {
   top: 0;
   flex: 0 1 auto;
   height: 100%;
-  width: 500px;
+  width: boldpx;
   min-width: 365px;
   padding: 0 40px 0 20px;
   color: var(--text-hard);
@@ -1061,7 +1061,7 @@ a:hover {
 .aside__item-caption {
   padding: 20px 0 10px;
   font-size: 24px;
-  font-weight: 500;
+  font-weight: bold;
   text-align: center;
 }
 .aside__item-menu {
@@ -1277,7 +1277,7 @@ a:hover {
   align-items: center;
   padding: 0 0 20px;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: bold;
 }
 .aside-left__icon {
   min-width: 30px;
@@ -1313,11 +1313,11 @@ a:hover {
   display: flex;
   flex-flow: column;
   justify-content: space-between;
-  width: 500px;
+  width: boldpx;
   height: inherit;
   min-height: max-content;
   background: white;
-  transform: translateX(500px);
+  transform: translateX(boldpx);
   transition: transform .8s ease-in-out;
   will-change: transform;
 }
@@ -1386,10 +1386,10 @@ a:hover {
   right: 0;
   bottom: 0;
   z-index: 99;
-  width: 500px;
+  width: boldpx;
   background-color: white;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
-  transform: translateX(500px);
+  transform: translateX(boldpx);
   transition: transform .8s ease-in-out;
 }
 .info-contact--active {
@@ -1483,7 +1483,7 @@ a:hover {
 .menu-left__title {
   margin-left: 30px;
   font-size: var(--main-fn-text--17);
-  font-weight: 500;
+  font-weight: bold;
   line-height: 2.35;
   color: var(--text-silver);
 }
@@ -1519,7 +1519,7 @@ a:hover {
   display: inline-grid;
   margin-left: 30px;
   font-size: var(--main-fn-text--17);
-  font-weight: 500;
+  font-weight: bold;
   color: var(--text-hard);
 }
 .menu-left__desc {
@@ -1640,7 +1640,7 @@ a:hover {
 .chat__user-name {
   font-size: var(--main-fn-text--15);
   line-height: 1;
-  font-weight: 500;
+  font-weight: 700;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -1787,7 +1787,7 @@ a:hover {
 }
 .edit-profile__header a {
   font-size: var(--main-fn-text--17);
-  font-weight: 500;
+  font-weight: bold;
 }
 .edit-profile__header a .fa {
   font-size: var(--main-fn-text--22);
@@ -1817,7 +1817,7 @@ a:hover {
   display: inherit;
   justify-content: space-around;
   font-size: var(--main-fn-text--17);
-  font-weight: 500;
+  font-weight: bold;
 }
 .edit-profile__link a {
   margin: 0 11px;
@@ -1833,7 +1833,7 @@ a:hover {
 .modal_label_text {
   margin: 54px 0 24px;
   font-size: var(--main-fn-text--17);
-  font-weight: 500;
+  font-weight: bold;
   line-height: 1;
    color: var(--text-hard);
 }
@@ -1881,7 +1881,7 @@ a:hover {
 .issue__header {
   padding-bottom: 23px;
   font-size: 32px;
-  font-weight: 500;
+  font-weight: bold;
   line-height: 1;
   text-align: center;
 }
@@ -2000,7 +2000,7 @@ a:hover {
   right: -38px;
   bottom: 0;
   font-size: var(--main-fn-text--17);
-  font-weight: 500;
+  font-weight: bold;
   line-height: 1;
   color: #c6cbce;
 }
@@ -2125,7 +2125,7 @@ a:hover {
   max-width: 160px;
   margin: auto 50px;
   font-size: var(--main-fn-text--15);
-  font-weight: 500;
+  font-weight: bold;
   line-height: 1.15;
   text-align: center;
   color: var(--text-hard);
@@ -2244,7 +2244,7 @@ a:hover {
   padding: 0 20%;
   font-size: var(--main-fn-text--15);
   color: white;
-  font-weight: 500;
+  font-weight: bold;
   line-height: 1.2;
   background-color: rgba(0, 0, 0, 0.7);
 }
@@ -2269,7 +2269,7 @@ a:hover {
   padding: 5px 10px;
   font-size: var(--main-fn-text--17);
   text-align: left;
-  font-weight: 500;
+  font-weight: bold;
   color: var(--text-hard);
 }
 .search-block__input::placeholder {
@@ -2309,7 +2309,7 @@ a:hover {
   display: none;
   padding: 0 15px 0 10px;
   font-size: var(--main-fn-text--17);
-  font-weight: 500;
+  font-weight: bold;
   line-height: 1;
   color: var(--text-hard);
   white-space: nowrap;
@@ -2512,7 +2512,7 @@ a:hover {
   font-weight: 400;
 }
 .industry__line a {
-  font-weight: 500;
+  font-weight: bold;
 }
 .industry__icon {
   margin-right: 16px;
@@ -2575,7 +2575,7 @@ a:hover {
   align-items: center;
   margin: 0 0 5px;
   font-size: var(--main-fn-text--17);
-  font-weight: 500;
+  font-weight: bold;
   color: var(--text-hard);
 }
 .peoples__name .user-plan {
@@ -2621,7 +2621,7 @@ a:hover {
   margin: auto 5px;
   padding: 8px 20px;
   font-size: var(--main-fn-text--15);
-  font-weight: 500;
+  font-weight: bold;
   line-height: 1;
   color: #687784;
   border-radius: 30px;
@@ -2649,7 +2649,7 @@ a:hover {
   height: 32px;
   margin: auto -10px auto 8px;
   font-size: var(--main-fn-text--15);
-  font-weight: 500;
+  font-weight: bold;
   color: var(--text-hard);
   line-height: 1;
   border-radius: 32px;
@@ -2678,7 +2678,7 @@ a:hover {
   width: 110px;
   font-size: var(--main-fn-text--15);
   line-height: 1.2;
-  font-weight: 500;
+  font-weight: bold;
   color: var(--text-gray);
 }
 .time-line__sep {
@@ -2795,14 +2795,14 @@ a:hover {
   height: 70px;
   padding-left: 30px;
   font-size: var(--main-fn-text--24);
-  font-weight: 500;
+  font-weight: bold;
   color: var(--text-hard);
   border-bottom: 2px solid var(--main-silver);
 }
 .profile__content {
   padding: 30px;
   font-size: var(--main-fn-text--17);
-  font-weight: 500;
+  font-weight: bold;
   line-height: 1;
   color: var(--text-hard);
 }
@@ -2833,7 +2833,7 @@ a:hover {
 }
 .profile__capt--18 {
   font-size: var(--main-fn-text--18);
-  font-weight: 500;
+  font-weight: bold;
   color: var(--text-hard);
   white-space: nowrap;
 }
@@ -2897,12 +2897,12 @@ a:hover {
   margin: 0 16px 0 0;
 }
 .communications-list__link {
-  font-weight: 500;
+  font-weight: bold;
   color: var(--main-blue);
 }
 
 .new-message {
-  width: 500px;
+  width: boldpx;
 }
 .new-message__header {
   position: relative;
@@ -2910,7 +2910,7 @@ a:hover {
   padding: 18px 25px;
   color: white;
   font-size: var(--main-fn-text--17);
-  font-weight: 500;
+  font-weight: bold;
   background-color: var(--main-blue);
 }
 .new-message__header .close {
@@ -2935,7 +2935,7 @@ a:hover {
   min-height: max-content;
   padding: 10px 20px;
   font-size: var(--main-fn-text--15);
-  font-weight: 500;
+  font-weight: bold;
   background-color: var(--body-background);
 }
 .new-message__input-field {
@@ -2981,7 +2981,7 @@ a:hover {
   padding: 22px;
   text-align: center;
   font-size: var(--main-fn-text--17);
-  font-weight: 500;
+  font-weight: bold;
   line-height: 1;
   white-space: normal;
   border-bottom: 2px solid var(--main-blue-light);
@@ -3017,7 +3017,7 @@ a:hover {
   position: relative;
   flex: 1 1 auto;
   font-size: var(--main-fn-text--15);
-  font-weight: 500;
+  font-weight: bold;
   line-height: 1.4;
 }
 .notifications-menu__dist {
@@ -3063,7 +3063,7 @@ a:hover {
 .user-menu__header {
   padding: 28px 20px 24px;
   font-size: var(--main-fn-text--17);
-  font-weight: 500;
+  font-weight: bold;
   line-height: 1;
   white-space: normal;
   border-bottom: 2px solid var(--main-blue-light);
@@ -3089,7 +3089,7 @@ a:hover {
   height: 50px;
   padding: 0 20px;
   font-size: var(--main-fn-text--17);
-  font-weight: 500;
+  font-weight: bold;
   line-height: 1px;
   color: var(--main-blue);
 }
